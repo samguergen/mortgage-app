@@ -20,4 +20,4 @@ end
 
 
 new_mortgage = Mortgage.new(280000, 30000, 5, 250000)
-new_mortgage.calculator
+puts new_mortgage.calculator

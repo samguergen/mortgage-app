@@ -18,7 +18,7 @@
 </div>
 
 <div class="page-body" ng-controller="MortgageCtrl" >
-<form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
+<form action="#" class="mortgage-form" ng-submit="nominator()" >
 <table class="pure-table pure-table-horizontal" >
 			<tr>
 				<td colspan="2"> Enter your mortgage information </td>
@@ -60,11 +60,12 @@
             </tr>            
 
 <pre> formData output: {{ formData | json }}</pre>
-<pre> Test output: {{ formData.number_of_payments + formData.total_price | json }}</pre>
+
+<pre> total: {{ total | json }}</pre>
+
+<pre> nom output: {{ nominator | json }}</pre>
 
 
-
-<pre> Stuff: {{ ((formData.annual_interest_rate / 12) / 100) * formData.loan_amount  | json }} </pre>
 
 
 

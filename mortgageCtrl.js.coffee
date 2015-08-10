@@ -17,7 +17,11 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
 
     $scope.formData = {};
 
-    $scope.nominator = {};
+    $scope.total = {};
+
+    $scope.nominator = function(){
+        $scope.total = $scope.formData.loan_amount + $scope.formData.downpayment ;
+    };
 
     $scope.demoninator = {};
     
