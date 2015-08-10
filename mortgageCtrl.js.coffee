@@ -19,8 +19,10 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
 
     $scope.total = {};
 
+    $scope.monthly_interest = (($scope.formData.annual_interest_rate / 12) / 100);
+
     $scope.nominator = function(){
-        $scope.total = $scope.formData.loan_amount + $scope.formData.downpayment ;
+        $scope.total = (($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)) ;
     };
 
     $scope.demoninator = {};

@@ -13,11 +13,14 @@ class Mortgage
   end
 
   def calculator
+  	nominator = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments))
 	monthly_payment = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments)) / (((1+ @monthly_interest)** @number_of_payments) -1 )
+  	puts nominator
+  	puts monthly_payment
   end
 
 end
 
 
 new_mortgage = Mortgage.new(280000, 30000, 5, 250000)
-puts new_mortgage.calculator
+new_mortgage.calculator
