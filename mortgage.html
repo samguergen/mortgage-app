@@ -1,0 +1,92 @@
+<html>
+<head><title>Mortgage Calculator</title>
+<link rel="stylesheet" type="text/css" href="mortgage.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<script src="mortgageCtrl.js.coffee"></script>
+
+</head>
+
+
+<body ng-app="mortgageApp">
+<div class="wrapper" >
+<div class="heading">
+<h1> Mortgage Calculator </h1>
+<h2> Calculate your Mortgage now! </h2>
+</div>
+
+<div class="page-body" ng-controller="MortgageCtrl" >
+<form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
+<table class="pure-table pure-table-horizontal" >
+			<tr>
+				<td colspan="2"> Enter your mortgage information </td>
+			</tr>
+            <tr> 
+                <th>Type of Mortgage</th>
+                <td>30-Year Fix</td>
+            </tr>
+            <tr>
+                <th>Number of Payments</th>
+                <td><input type="number" name="number_of_payments" ng-model="formData.number_of_payments" value="360" </td>
+            </tr>
+            <tr>
+                <th>Total Price of House</th>
+                <td> <input type="number" name="total_price" ng-model="formData.total_price" /> </td>
+            </tr>
+
+            <tr>
+                <th>Down Payment</th>
+                <td> <input type="number" name="downpayment" ng-model="formData.downpayment" /> </td>
+            </tr>
+            <tr>
+                <th>Annual Interest Rate</th>
+                <td> <input type="number" name="annual_interest_rate" ng-model="formData.annual_interest_rate" /> </td>
+            </tr>
+            <tr>
+                <th>Loan Amount</th>
+                <td> <input type="number" name="loan_amount" ng-model="formData.loan_amount" /> </td>
+            </tr>
+            <tr>
+            	<td colspan="2">
+                    <input type="button" ng-click="reset()" value="Reset"/>
+					<input type="submit" value="Submit"/>
+				</td>
+            </tr>
+            <tr>
+                <th>Nominator</th>
+                <td> <input type="number" name="nom_answer" ng-model="nom_answer" /> </td>
+            </tr>            
+
+<pre> formData output: {{ formData | json }}</pre>
+<pre> Test output: {{ formData.number_of_payments + formData.total_price | json }}</pre>
+<pre> Nominator answer output: {{ nom_answer | json }}</pre>
+
+
+
+</table>
+
+</form>
+
+<div id="pie-chart">
+
+PIE CHART DISPLAYED HERE
+
+
+
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+</div>
+
+
+</body>
+
+
+
+
+</html>
