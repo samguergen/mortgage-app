@@ -61,7 +61,10 @@
 
 <pre> formData output: {{ formData | json }}</pre>
 <pre> Test output: {{ formData.number_of_payments + formData.total_price | json }}</pre>
-<pre> Nominator answer output: {{ nom_answer | json }}</pre>
+
+
+
+<pre> Stuff: {{ ((formData.annual_interest_rate / 12) / 100) * formData.loan_amount  | json }} </pre>
 
 
 
