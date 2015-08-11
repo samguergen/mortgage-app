@@ -38,7 +38,10 @@
 
             <tr>
                 <th>Down Payment</th>
-                <td> <input type="number" ng-model="formData.downpayment" /> </td>
+                <td> <input type="number" ng-model="formData.downpayment" /> 
+                     <br> Amount <input type="radio" ng-model="formData.down" ng-value="1" /> 
+                     Percentage <input type="radio" ng-model="formData.down" ng-value="2" />
+                </td>
             </tr>
             <tr>
                 <th>Annual Interest Rate</th>
@@ -47,7 +50,7 @@
             <tr>
                 <th>Loan Amount</th>
 
-                <td> <ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
+                <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
             </tr>
             <tr>
             	<td colspan="2">
