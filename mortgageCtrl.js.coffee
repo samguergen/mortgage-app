@@ -21,7 +21,7 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
 
     $scope.monthly_interest = (($scope.formData.annual_interest_rate / 12) / 100);
 
-    $scope.nominator = function(){
+    $scope.calculateMortgage = function(){
         $scope.total = (($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)) ;
     };
 
@@ -31,12 +31,6 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
         $scope.formData = "";
     };
 
-
-    $scope.calculateMortgage = function(){
-    	nom_answer = mortgageCalc.nominator($scope.formData.total_price, $scope.formData.downpayment, $scope.formData.annual_interest_rate, $scope.formData.loan_amount, $scope.formData.number_of_payments) ;
-    	$scope.denom_answer = mortgageCalc.denominator($scope.formData.total_price, $scope.formData.downpayment, $scope.formData.annual_interest_rate, $scope.formData.loan_amount, $scope.formData.number_of_payments) ; ;
-        console.log(nom_answer);
-    };
   }
 
 
