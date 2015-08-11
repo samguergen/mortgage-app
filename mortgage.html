@@ -25,11 +25,11 @@
 			</tr>
             <tr> 
                 <th>Type of Mortgage</th>
-                <td>30-Year Fix</td>
+                <td>30-Year Fix <input type="checkbox" ng-model="formData.number_of_payments" /> </td>
             </tr>
             <tr>
                 <th>Number of Payments</th>
-                <td><input type="number" ng-model="formData.number_of_payments" value="360"/> </td>
+                <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
             </tr>
             <tr>
                 <th>Total Price of House</th>
@@ -56,6 +56,8 @@
 				</td>
             </tr>          
 
+
+ Your number of payments is:  {{ formData.number_of_payments }}, {{ mortgageTypeModel.value1 }}
 
  Your total monthly payment is:  {{ total_monthly_payment | currency }}
  Your total monthly interest is:  {{ total_monthly_interest | currency }}
