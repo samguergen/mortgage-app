@@ -12,7 +12,7 @@ app.service('mortgageCalc', function(){
 });
 
 
-mortgageCtrl = function($scope, $http, $window, mortgageCalc){
+mortgageCtrl = function($scope, $window, mortgageCalc){
     console.log('in da controller');
 
     $scope.formData = {};
@@ -36,7 +36,7 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
   }
 
 
- app.controller("MortgageCtrl", ['$scope', '$http', '$window', 'mortgageCalc', mortgageCtrl] )
+ app.controller("MortgageCtrl", ['$scope', '$window', 'mortgageCalc', mortgageCtrl] )
 
 
 
