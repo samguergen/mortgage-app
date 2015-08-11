@@ -16,11 +16,7 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
     console.log('in da controller');
 
     $scope.formData = {};
-    nominator = {};
-    denominator = {};
-    $scope.total_monthly_payment = {};
-    $scope.total_monthly_interest = {};
-    $scope.total_monthly_principal = {};
+
 
     $scope.monthly_interest_rate = (($scope.formData.annual_interest_rate / 12) / 100);
 
