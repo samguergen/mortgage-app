@@ -1,8 +1,6 @@
 var app = angular.module("mortgageApp", []);
 
 
-
-
 mortgageCtrl = function($scope){
     console.log('in da controller');
 
@@ -27,7 +25,11 @@ mortgageCtrl = function($scope){
   }
 
 
- app.controller("MortgageCtrl", ['$scope', mortgageCtrl] )
+ app.controller("MortgageCtrl", ['$scope', mortgageCtrl] );
+
+
+
+
 
 
 
