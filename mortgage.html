@@ -1,4 +1,4 @@
-<html>
+<html ng-app="mortgageApp" ng-controller="MortgageCtrl">
 <head><title>Mortgage Calculator</title>
 <link rel="stylesheet" type="text/css" href="mortgage.css">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -10,14 +10,14 @@
 </head>
 
 
-<body ng-app="mortgageApp">
+<body>
 <div class="wrapper" >
 <div class="heading">
 <h1> Mortgage Calculator </h1>
 <h2> Calculate your Mortgage now! </h2>
 </div>
 
-<div class="page-body" ng-controller="MortgageCtrl" >
+<div class="page-body">
 <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
 <table class="pure-table pure-table-horizontal" >
 			<tr>
@@ -29,24 +29,24 @@
             </tr>
             <tr>
                 <th>Number of Payments</th>
-                <td><input type="number"  ng-model="formData.number_of_payments" value="360" </td>
+                <td><input type="number" ng-model="formData.number_of_payments" value="360"/> </td>
             </tr>
             <tr>
                 <th>Total Price of House</th>
-                <td> <input type="number"  ng-model="formData.total_price" /> </td>
+                <td> <input type="number" ng-model="formData.total_price" /> </td>
             </tr>
 
             <tr>
                 <th>Down Payment</th>
-                <td> <input type="number"  ng-model="formData.downpayment" /> </td>
+                <td> <input type="number" ng-model="formData.downpayment" /> </td>
             </tr>
             <tr>
                 <th>Annual Interest Rate</th>
-                <td> <input type="number"  ng-model="formData.annual_interest_rate" /> </td>
+                <td> <input type="number" ng-model="formData.annual_interest_rate" /> </td>
             </tr>
             <tr>
                 <th>Loan Amount</th>
-                <td> <input type="number"  ng-model="formData.loan_amount" /> </td>
+                <td> <input type="number" ng-model="formData.loan_amount" /> </td>
             </tr>
             <tr>
             	<td colspan="2">
@@ -59,6 +59,9 @@
  Your total monthly payment is:  {{ total_monthly_payment | currency }}
  Your total monthly interest is:  {{ total_monthly_interest | currency }}
  Your total monthly principal is:  {{ total_monthly_principal | currency }}
+
+
+
 
 
 </table>
