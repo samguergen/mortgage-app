@@ -39,8 +39,8 @@
             <tr>
                 <th>Down Payment</th>
                 <td> <input type="number" ng-model="formData.downpayment" /> 
-                     <br> Amount <input type="radio" ng-model="formData.down" ng-value="1" /> 
-                     Percentage <input type="radio" ng-model="formData.down" ng-value="2" />
+                     <br> Amount <input type="radio" ng-model="formData.down_type" ng-value="1" /> 
+                     Percentage <input type="radio" ng-model="formData.down_type" ng-value="2" />
                 </td>
             </tr>
             <tr>
@@ -60,7 +60,7 @@
             </tr>          
 
 
- Your number of payments is:  {{ formData.number_of_payments }}, {{ formData.mortgage_type}}
+ Your number of payments is:  {{ formData.number_of_payments }}
 
  Your total monthly payment is:  {{ total_monthly_payment | currency }}
  Your total monthly interest is:  {{ total_monthly_interest | currency }}

@@ -14,8 +14,8 @@ mortgageCtrl = function($scope){
             $scope.formData.number_of_payments = 360;
         };
 
-        if ($scope.formData.down == "2"){
-            $scope.formData.downpayment = (($scope.formData.downpayment / 100 ) * $scope.formData.total_price);
+        if ($scope.formData.down_type == "2"){
+            $scope.formData.downpayment = (($scope.formData.downpayment / 100 ) * $scope.formData.total_price)
         };
  
         $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
