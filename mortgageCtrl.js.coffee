@@ -1,18 +1,9 @@
 var app = angular.module("mortgageApp", []);
 
 
-app.service('mortgageCalc', function(){
-	this.nominator = function(total_price, downpayment, annual_interest_rate, loan_amount, number_of_payments){ 
-		return (monthly_interest * loan_amount * (Math.pow((1+ monthly_interest), number_of_payments)) )
-	};
-	this.denominator = function(total_price, downpayment, annual_interest_rate, loan_amount, number_of_payments){ 
-		return ( Math.pow((1+ monthly_interest), number_of_payments) -1 ) 
-	};
-	this.monthly_payment = function(){return (this.nominator/this.denominator)};
-});
 
 
-mortgageCtrl = function($scope, $window, mortgageCalc){
+mortgageCtrl = function($scope){
     console.log('in da controller');
 
     $scope.formData = {};
@@ -36,7 +27,7 @@ mortgageCtrl = function($scope, $window, mortgageCalc){
   }
 
 
- app.controller("MortgageCtrl", ['$scope', '$window', 'mortgageCalc', mortgageCtrl] )
+ app.controller("MortgageCtrl", ['$scope', mortgageCtrl] )
 
 
 
