@@ -6,21 +6,14 @@ mortgageCtrl = function($scope){
 
     $scope.formData = {};
 
-    $scope.mortgageTypeModel = {value1: false};
-
-    $scope.formData.number_of_payments = function(){
-        if ($scope.mortgageTypeModel.value1.valueOf() === true){
-            return 360;
-        }
-    }; 
-
-    console.log($scope.mortgageTypeModel.value1.valueOf());
-
-
     $scope.monthly_interest_rate = (($scope.formData.annual_interest_rate / 12) / 100);
 
     $scope.calculateMortgage = function(){      
 
+        if ($scope.formData.mortgage_type === true){
+            $scope.formData.number_of_payments = 360;
+        }
+ 
         $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
 
         nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
