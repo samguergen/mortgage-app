@@ -1,4 +1,4 @@
-<html>
+<html ng-app="mortgageApp" ng-controller="MortgageCtrl">
 <head><title>Mortgage Calculator</title>
 <link rel="stylesheet" type="text/css" href="mortgage.css">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
@@ -10,14 +10,14 @@
 </head>
 
 
-<body ng-app="mortgageApp">
+<body>
 <div class="wrapper" >
 <div class="heading">
 <h1> Mortgage Calculator </h1>
 <h2> Calculate your Mortgage now! </h2>
 </div>
 
-<div class="page-body" ng-controller="MortgageCtrl" >
+<div class="page-body">
 <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
 <table class="pure-table pure-table-horizontal" >
 			<tr>
@@ -25,28 +25,32 @@
 			</tr>
             <tr> 
                 <th>Type of Mortgage</th>
-                <td>30-Year Fix</td>
+                <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
             </tr>
             <tr>
                 <th>Number of Payments</th>
-                <td><input type="number" name="number_of_payments" ng-model="formData.number_of_payments" value="360" </td>
+                <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
             </tr>
             <tr>
                 <th>Total Price of House</th>
-                <td> <input type="number" name="total_price" ng-model="formData.total_price" /> </td>
+                <td> <input type="number" ng-model="formData.total_price" /> </td>
             </tr>
 
             <tr>
                 <th>Down Payment</th>
-                <td> <input type="number" name="downpayment" ng-model="formData.downpayment" /> </td>
+                <td> <input type="number" ng-model="formData.downpayment" /> 
+                     <br> Amount <input type="radio" ng-model="formData.down_type" ng-value="1" /> 
+                     Percentage <input type="radio" ng-model="formData.down_type" ng-value="2" />
+                </td>
             </tr>
             <tr>
                 <th>Annual Interest Rate</th>
-                <td> <input type="number" name="annual_interest_rate" ng-model="formData.annual_interest_rate" /> </td>
+                <td> <input type="number" ng-model="formData.annual_interest_rate" /> </td>
             </tr>
             <tr>
                 <th>Loan Amount</th>
-                <td> <input type="number" name="loan_amount" ng-model="formData.loan_amount" /> </td>
+
+                <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
             </tr>
             <tr>
             	<td colspan="2">
@@ -56,9 +60,15 @@
             </tr>          
 
 
-<pre> Your total monthly payment is:  ${{ total_monthly_payment | json }}</pre>
-<pre> Your total monthly interest is:  ${{ total_monthly_interest | json }}</pre>
-<pre> Your total monthly principal is:  ${{ total_monthly_principal | json }}</pre>
+ Your number of payments is:  {{ formData.number_of_payments }}
+
+ Your total monthly payment is:  {{ total_monthly_payment | currency }}
+ Your total monthly interest is:  {{ total_monthly_interest | currency }}
+ Your total monthly principal is:  {{ total_monthly_principal | currency }}
+ Your loan amount is:  {{ formData.loan_amount | currency }}
+
+
+
 
 
 </table>
