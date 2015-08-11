@@ -16,21 +16,27 @@ mortgageCtrl = function($scope, $http, $window, mortgageCalc){
     console.log('in da controller');
 
     $scope.formData = {};
-
     $scope.nominator = {};
+    $scope.denominator = {};
+    $scope.total_monthly_payment = {};
+    $scope.total_monthly_interest = {};
+    $scope.total_monthly_principal = {};
 
-    $scope.demoninator = {};
+    $scope.monthly_interest_rate = (($scope.formData.annual_interest_rate / 12) / 100);
+
+    $scope.calculateMortgage = function(){
+        $scope.nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
+        $scope.denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
+        $scope.total_monthly_payment = $scope.nominator / $scope.denominator;
+        $scope.total_monthly_interest = $scope.total_monthly_payment - ($scope.formData.total_price / $scope.formData.number_of_payments);
+        $scope.total_monthly_principal = $scope.total_monthly_payment - $scope.total_monthly_interest;
+    };
+
     
     $scope.reset = function(){
         $scope.formData = "";
     };
 
-
-    $scope.calculateMortgage = function(){
-    	nom_answer = mortgageCalc.nominator($scope.formData.total_price, $scope.formData.downpayment, $scope.formData.annual_interest_rate, $scope.formData.loan_amount, $scope.formData.number_of_payments) ;
-    	$scope.denom_answer = mortgageCalc.denominator($scope.formData.total_price, $scope.formData.downpayment, $scope.formData.annual_interest_rate, $scope.formData.loan_amount, $scope.formData.number_of_payments) ; ;
-        console.log(nom_answer);
-    };
   }
 
 

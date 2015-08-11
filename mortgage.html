@@ -53,16 +53,12 @@
                     <input type="button" ng-click="reset()" value="Reset"/>
 					<input type="submit" value="Submit"/>
 				</td>
-            </tr>
-            <tr>
-                <th>Nominator</th>
-                <td> <input type="number" name="nom_answer" ng-model="nom_answer" /> </td>
-            </tr>            
+            </tr>          
 
-<pre> formData output: {{ formData | json }}</pre>
-<pre> Test output: {{ formData.number_of_payments + formData.total_price | json }}</pre>
-<pre> Nominator answer output: {{ nom_answer | json }}</pre>
 
+<pre> Your total monthly payment is:  ${{ total_monthly_payment | json }}</pre>
+<pre> Your total monthly interest is:  ${{ total_monthly_interest | json }}</pre>
+<pre> Your total monthly principal is:  ${{ total_monthly_principal | json }}</pre>
 
 
 </table>

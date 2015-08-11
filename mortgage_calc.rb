@@ -13,7 +13,17 @@ class Mortgage
   end
 
   def calculator
+  	nominator = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments))
+  	denominator = (((1+ @monthly_interest)** @number_of_payments) -1 )
 	monthly_payment = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments)) / (((1+ @monthly_interest)** @number_of_payments) -1 )
+  	monthly_interest = monthly_payment - (@total_price / @number_of_payments)
+  	monthly_principal = monthly_payment - monthly_interest
+
+  	puts nominator
+  	puts denominator
+  	puts monthly_payment
+  	puts monthly_interest
+  	puts monthly_principal
   end
 
 end

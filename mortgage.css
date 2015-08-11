@@ -1,0 +1,62 @@
+.wrapper {
+	width: 90%;
+	text-align: center;
+	padding: 30px;
+	margin: auto;
+	background-color: #F7F7F8;
+	height: 90%;
+}
+
+
+.heading {
+	padding: 20px;
+	border: 2px solid grey;
+
+}
+
+.page-body {
+	margin-top: 100px;
+}
+
+
+.pure-table {
+	width: 25%;
+	border: 1px solid black;
+	float: left;
+}
+
+
+.pure-table tr:first-child td:first-child {
+	font-weight: bold;
+	font-size: 18px;
+	padding: 20px;
+}
+
+.pure-table th {
+	background-color: #f2f2f2;
+}
+
+.pure-table tr:last-child td:last-child {
+	text-align: center;
+}
+
+.pure-table tr:last-child td:last-child input{
+	margin-left: 30px;
+}
+
+
+#pie-chart {
+	float: left
+	margin: 50px;
+	margin-left: 660px;
+	border: 2px solid black;
+	border-radius: 100%;
+	width: 30%;
+	font-size: 30px;
+	padding: 100px;
+
+}
+
+.footer {
+	clear: both;
+}
