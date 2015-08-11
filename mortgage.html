@@ -46,7 +46,8 @@
             </tr>
             <tr>
                 <th>Loan Amount</th>
-                <td> <input type="number" ng-model="formData.loan_amount" /> </td>
+
+                <td> <ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
             </tr>
             <tr>
             	<td colspan="2">
@@ -59,6 +60,7 @@
  Your total monthly payment is:  {{ total_monthly_payment | currency }}
  Your total monthly interest is:  {{ total_monthly_interest | currency }}
  Your total monthly principal is:  {{ total_monthly_principal | currency }}
+ Your loan amount is:  {{ formData.loan_amount | currency }}
 
 
 
