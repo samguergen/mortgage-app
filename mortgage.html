@@ -67,9 +67,11 @@
  Your total monthly interest is:  {{ total_monthly_interest | currency }}
  Your total monthly principal is:  {{ total_monthly_principal | currency }}
  Your loan amount is:  {{ formData.loan_amount | currency }}
- Balance progression : {{ balance_progression }}
+ 
 
-
+<br>Mortgage Balance: {{ balance_progression.house_balance }}
+<br>Interest: {{ balance_progression.monthly_interest }}
+<br>Principal: {{ balance_progression.monthly_principal }}
 
 
 
