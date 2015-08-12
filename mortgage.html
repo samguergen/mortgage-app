@@ -61,19 +61,22 @@
             </tr>          
 
 
- Your number of payments is:  {{ formData.number_of_payments }}
+<br> Your number of payments is:  {{ formData.number_of_payments }}
 
- Your total monthly payment is:  {{ total_monthly_payment | currency }}
- Your total monthly interest is:  {{ total_monthly_interest | currency }}
- Your total monthly principal is:  {{ total_monthly_principal | currency }}
- Your loan amount is:  {{ formData.loan_amount | currency }}
+<br> Your total monthly payment is:  {{ total_monthly_payment | currency }}
+
+<br> Your loan amount is:  {{ formData.loan_amount | currency }}
  
-
 <br>Mortgage Balance: {{ balance_progression.house_balance }}
 <br>Interest: {{ balance_progression.monthly_interest }}
 <br>Principal: {{ balance_progression.monthly_principal }}
 
 
+<div id="prog-table" ng-repeat="stuff in balance_progression.house_balance">
+
+<br> {{ stuff }}
+
+</div>
 
 </table>
 
