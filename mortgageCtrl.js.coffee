@@ -29,6 +29,8 @@ mortgageCtrl = function($scope){
 
     $scope.balance_progression = [];
 
+    $scope.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
+
     $scope.monthly_interest_rate = (($scope.formData.annual_interest_rate / 12) / 100);
 
     $scope.calculateMortgage = function(){
@@ -45,23 +47,30 @@ mortgageCtrl = function($scope){
         else if($scope.formData.down_type == 2){
             $scope.formData.downpayment = $scope.formData.downpayment
         };
-
+        console.log('total price is ');
         console.log($scope.formData.total_price);
+        console.log('downpayment is ');
         console.log($scope.formData.downpayment);
         
         $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
+        console.log('loan amount is ');
         console.log($scope.formData.loan_amount);
 
         nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
         $scope.total_monthly_payment = nominator / denominator;
+        console.log('total monthly pay is ');
         console.log($scope.total_monthly_payment);
-        return $scope.total_monthly_payment
+        return $scope.total_monthly_payment;
 
     };
 
 
     $scope.calculateMortgageProgression = function(house_balance){
+        pay = $scope.calculateMortgage();
+        console.log('monthly payment is ...');
+        console.log(pay);
+        console.log($scope.formData.loan_amount);
         if (typeof house_balance == "undefined"){ house_balance = $scope.formData.loan_amount };
         console.log(house_balance);
         $scope.remaining_balance = house_balance;
@@ -71,9 +80,6 @@ mortgageCtrl = function($scope){
         $scope.remaining_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12);
         console.log('remaining interest is ...');
         console.log($scope.remaining_interest);
-        pay = $scope.calculateMortgage();
-        console.log('monthly payment is ...');
-        console.log(pay);
         $scope.remaining_balance = pay - $scope.remaining_interest; 
         console.log('remaining balance is...');
         console.log($scope.remaining_balance);
