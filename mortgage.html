@@ -79,13 +79,19 @@
     <tr>
         <td>num</td>
     </tr>
+
+    <tr>
         <td>{{ total_monthly_payment | currency }}</td>
+    </tr>
+
     <tr ng-repeat="principal in balance_progression.monthly_principal">
         <td>{{ principal | currency}}</td>
     </tr>
+
     <tr ng-repeat="interest in balance_progression.monthly_interest">
         <td>{{ interest | currency}}</td>
     </tr>
+    
     <tr ng-repeat="balance in balance_progression.house_balance">
         <td>{{ balance | currency}}</td>
     </tr>
