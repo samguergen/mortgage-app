@@ -71,37 +71,46 @@
     <tr>
         <th>Payment Number</th>
         <th>Monthly Payment</th>
-        <th>Monthly Principal</th>
-        <th>Monthly Interest</th>
         <th>Remaining Balance</th>
+        <th>Monthly Interest</th>
+        <th>Monthly Principal</th>
+        
+        
     </tr>
 </thead>
 
-<tbody >
-    <tr ng-repeat="principal in balance_progression.monthly_principal">
+<tbody>
+    <tr >
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ principal | currency}}</td>
-        <td>{{ interest | currency}}</td>
-        <td>{{ balance | currency}}</td>
+        <td>{{ bal[0][0] | currency}}</td>
+        <td>{{ bal[1][0] | currency}}</td>
+        <td>{{ bal[2][0] | currency}}</td>
     </tr>
 
-
-    <tr ng-repeat="interest in balance_progression.monthly_interest">
+    <tr >
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ principal | currency}}</td>
-        <td>{{ interest | currency}}</td>
-        <td>{{ balance | currency}}</td>
+        <td>{{ bal[0][1] | currency}}</td>
+        <td>{{ bal[1][1] | currency}}</td>
+        <td>{{ bal[2][1] | currency}}</td>
     </tr>
 
-    <tr ng-repeat="balance in balance_progression.house_balance">
+    <tr >
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ principal | currency}}</td>
-        <td>{{ interest | currency}}</td>
-        <td>{{ balance | currency}}</td>
-    </tr>
+        <td>{{ bal[0][2] | currency}}</td>
+        <td>{{ bal[1][2] | currency}}</td>
+        <td>{{ bal[2][2] | currency}}</td>
+    </tr>    
+
+    <tr >
+        <td>num</td>
+        <td>{{ total_monthly_payment | currency }}</td>
+        <td>{{ bal[1][4] | currency}}</td>
+        <td>{{ bal[2][4] | currency}}</td>
+        <td>{{ bal[3][4] | currency}}</td>
+    </tr>      
 
 </tbody>
 

@@ -7,7 +7,7 @@ mortgageCtrl = function($scope){
     $scope.formData = {};
 
     $scope.balance_progression = {'house_balance': [], 'monthly_interest': [], 'monthly_principal': []};
-
+    $scope.bal = [[],[],[]];
 
     $scope.calculateMortgage = function(){
 
@@ -50,6 +50,18 @@ mortgageCtrl = function($scope){
             $scope.balance_progression.house_balance.push($scope.remaining_balance);
             $scope.balance_progression.monthly_interest.push($scope.monthly_interest);
             $scope.balance_progression.monthly_principal.push($scope.monthly_principal);
+
+            console.log($scope.bal);
+            console.log($scope.bal[1]);
+
+
+            $scope.bal[0].push($scope.remaining_balance);
+            $scope.bal[1].push($scope.monthly_interest);
+            $scope.bal[2].push($scope.monthly_principal);
+
+            console.log($scope.bal);
+
+
             $scope.remaining_balance = $scope.remaining_balance - $scope.monthly_principal;
             
             $scope.calculateMortgageProgression($scope.remaining_balance);
