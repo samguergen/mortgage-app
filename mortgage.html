@@ -60,6 +60,9 @@
 				</td>
             </tr>          
 
+</table>
+
+</form>
 
 <br> Your number of payments is:  {{ formData.number_of_payments }}
 
@@ -67,20 +70,24 @@
 
 <br> Your loan amount is:  {{ formData.loan_amount | currency }}
  
-<br>Mortgage Balance: {{ balance_progression.house_balance }}
-<br>Interest: {{ balance_progression.monthly_interest }}
-<br>Principal: {{ balance_progression.monthly_principal }}
 
-
-<div id="prog-table" ng-repeat="stuff in balance_progression.house_balance">
-
-<br> {{ stuff }}
+<div id="prog-table">
+    <br> Mortgage Balance
+    <div class="prog-table-col" ng-repeat="balance in balance_progression.house_balance">
+        <br> {{ balance }}
+    </div>
+    <br> Monthly Interest
+    <div class="prog-table-col" ng-repeat="interest in balance_progression.monthly_interest">
+        <br> {{ interest }}
+    </div>
+    <br> Monthly Principal
+    <div class="prog-table-col" ng-repeat="principal in balance_progression.monthly_principal">
+        <br> {{ principal }}
+    </div>
 
 </div>
 
-</table>
 
-</form>
 
 <div id="pie-chart">
 
