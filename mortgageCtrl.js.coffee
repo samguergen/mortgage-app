@@ -84,8 +84,6 @@ mortgageCtrl = function($scope){
             $scope.remaining_balance = $scope.remaining_balance - $scope.monthly_principal;
             console.log('before recursion');
             $scope.calculateMortgageProgression($scope.remaining_balance);
-            console.log('after recursion ...');
-            console.log($scope.remaining_balance);
         };
         return $scope.remaining_balance;
     };
