@@ -56,6 +56,7 @@
             	<td colspan="2">
                     <input type="button" ng-click="reset()" value="Reset"/>
 					<input type="submit" value="Submit"/>
+                    <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/>
 				</td>
             </tr>          
 
@@ -66,6 +67,7 @@
  Your total monthly interest is:  {{ total_monthly_interest | currency }}
  Your total monthly principal is:  {{ total_monthly_principal | currency }}
  Your loan amount is:  {{ formData.loan_amount | currency }}
+ Your remaining balance (progression) is {{ remaining_balance | currency }}
 
 
 
