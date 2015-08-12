@@ -24,8 +24,15 @@ mortgageCtrl = function($scope){
         denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
         $scope.total_monthly_payment = nominator / denominator;
 
-        $scope.total_monthly_interest = $scope.total_monthly_payment - ($scope.formData.total_price / $scope.formData.number_of_payments);
-        $scope.total_monthly_principal = $scope.total_monthly_payment - $scope.total_monthly_interest;
+    };
+
+
+    $scope.calculateMortgageProgression = function(house_balance = $scope.formData.total_price){
+        $scope.remaining_balance = house_balance;
+        $scope.remaining_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12);
+        $scope.remaining_balance =  $scope.total_monthly_payment - $scope.remaining_interest; 
+        console.log $scope.remaining_balance;
+        $scope.calculateMortgageProgression($scope.remaining_balance);
     };
 
     

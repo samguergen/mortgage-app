@@ -16,8 +16,15 @@ class Mortgage
   	nominator = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments))
   	denominator = (((1+ @monthly_interest)** @number_of_payments) -1 )
 	monthly_payment = (@monthly_interest * @loan_amount * ((1+ @monthly_interest)** @number_of_payments)) / (((1+ @monthly_interest)** @number_of_payments) -1 )
+  	
   	monthly_interest = monthly_payment - (@total_price / @number_of_payments)
   	monthly_principal = monthly_payment - monthly_interest
+
+  	remaining_balance = @total_price
+  	
+  	remaining_interest = remaining_balance * (annual_interest_rate.to_f / 12)
+  	remaining_balance =  monthly_payment - remaining_interest 
+
 
   	puts nominator
   	puts denominator
