@@ -77,8 +77,8 @@
     </tr>
 </thead>
 
-<tbody ng-repeat="principal in balance_progression.monthly_principal">
-    <tr>
+<tbody >
+    <tr ng-repeat="principal in balance_progression.monthly_principal">
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
         <td>{{ principal | currency}}</td>
@@ -86,10 +86,8 @@
         <td>{{ balance | currency}}</td>
     </tr>
 
-</tbody>
 
-<tbody ng-repeat="interest in balance_progression.monthly_interest">
-    <tr>
+    <tr ng-repeat="interest in balance_progression.monthly_interest">
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
         <td>{{ principal | currency}}</td>
@@ -97,10 +95,7 @@
         <td>{{ balance | currency}}</td>
     </tr>
 
-</tbody>
-
-<tbody ng-repeat="balance in balance_progression.house_balance">
-    <tr>
+    <tr ng-repeat="balance in balance_progression.house_balance">
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
         <td>{{ principal | currency}}</td>
