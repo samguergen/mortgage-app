@@ -66,8 +66,8 @@
 
 
 
-<table id="prog-table" class="pure-table pure-table-striped" >
-
+<table id="prog-table"  >
+<thead>
     <tr>
         <th>Payment Number</th>
         <th>Monthly Payment</th>
@@ -75,28 +75,18 @@
         <th>Monthly Interest</th>
         <th>Remaining Balance</th>
     </tr>
+</thead>
 
+<tbody ng-repeat="principal in balance_progression.monthly_principal" ng-repeat="principal in balance_progression.monthly_principal" ng-repeat="balance in balance_progression.house_balance">
     <tr>
         <td>num</td>
-    </tr>
-
-    <tr>
         <td>{{ total_monthly_payment | currency }}</td>
-    </tr>
-
-    <tr ng-repeat="principal in balance_progression.monthly_principal">
         <td>{{ principal | currency}}</td>
-    </tr>
-
-    <tr ng-repeat="interest in balance_progression.monthly_interest">
         <td>{{ interest | currency}}</td>
-    </tr>
-    
-    <tr ng-repeat="balance in balance_progression.house_balance">
         <td>{{ balance | currency}}</td>
     </tr>
 
-
+</tbody>
 </table>
 
 
