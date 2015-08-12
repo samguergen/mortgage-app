@@ -67,32 +67,27 @@ mortgageCtrl = function($scope){
 
 
     $scope.calculateMortgageProgression = function(house_balance){
-        pay = $scope.calculateMortgage();
+        month_payment = $scope.calculateMortgage();
         console.log('monthly payment is ...');
-        console.log(pay);
-        console.log($scope.formData.loan_amount);
+        console.log(month_payment);
         if (typeof house_balance == "undefined"){ house_balance = $scope.formData.loan_amount };
-        console.log(house_balance);
         $scope.remaining_balance = house_balance;
-        console.log('remaining/house balance is ...');
-        console.log($scope.remaining_balance);
-        console.log($scope.formData.annual_interest_rate / 12);
-        $scope.remaining_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12);
-        console.log('remaining interest is ...');
-        console.log($scope.remaining_interest);
-        $scope.remaining_balance = pay - $scope.remaining_interest; 
-        console.log('remaining balance is...');
-        console.log($scope.remaining_balance);
-
         if ($scope.remaining_balance > 0){
-            console.log('before recursion ...');
+            console.log('house balance/total loan is ...');
+            console.log($scope.remaining_balance);
+            $scope.monthly_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
+            console.log('monthly interest is ...');
+            console.log($scope.monthly_interest);
+            $scope.monthly_principal = month_payment - $scope.monthly_interest; 
+            console.log('monthly principal is...');
+            console.log($scope.monthly_principal);
+            $scope.remaining_balance = $scope.remaining_balance - $scope.monthly_principal;
+            console.log('before recursion');
             $scope.calculateMortgageProgression($scope.remaining_balance);
             console.log('after recursion ...');
             console.log($scope.remaining_balance);
-            }
-        else{
-            console.log('finish!');
-            return $scope.remaining_balance};
+        };
+        return $scope.remaining_balance;
     };
 
     
