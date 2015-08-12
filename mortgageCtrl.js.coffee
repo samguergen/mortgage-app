@@ -17,7 +17,7 @@ app.service('sharedProp', function(){
             denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
             $scope.total_monthly_payment = nominator / denominator;
             return $scope.total_monthly_payment;
-            };
+            }
         };
 
 });
@@ -46,29 +46,34 @@ mortgageCtrl = function($scope){
         nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
         $scope.total_monthly_payment = nominator / denominator;
-        this.monthly_payment = $scope.total_monthly_payment;
+        return $scope.total_monthly_payment;
 
     };
 
 
     $scope.calculateMortgageProgression = function(house_balance){
-        console.log(house_balance);
         if (typeof house_balance == "undefined"){ house_balance = $scope.formData.total_price };
         console.log(house_balance);
         $scope.remaining_balance = house_balance;
+        console.log('remaining/house balance is ...');
         console.log($scope.remaining_balance);
         $scope.remaining_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12);
+        console.log('remaining interest is ...');
         console.log($scope.remaining_interest);
-        console.log($scope.total_monthly_payment);
-        $scope.remaining_balance =  $scope.total_monthly_payment - $scope.remaining_interest; 
+        pay = $scope.calculateMortgage();
+        console.log('monthly payment is ...');
+        console.log(pay);
+        $scope.remaining_balance =  pay - $scope.remaining_interest; 
         console.log($scope.remaining_balance);
 
         if ($scope.remaining_balance > 0){
-
+            console.log('before recursion ...');
             $scope.calculateMortgageProgression($scope.remaining_balance);
+            console.log('after recursion ...');
             console.log($scope.remaining_balance);
             }
         else{
+            console.log('finish!');
             return $scope.remaining_balance};
     };
 
