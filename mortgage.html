@@ -64,46 +64,46 @@
 
 </form>
 
-<br> Your number of payments is:  {{ formData.number_of_payments }}
-
-<br> Your total monthly payment is:  {{ total_monthly_payment | currency }}
-
-<br> Your loan amount is:  {{ formData.loan_amount | currency }}
- 
-
-<div id="prog-table">
-    <br> Mortgage Balance
-    <div class="prog-table-col" ng-repeat="balance in balance_progression.house_balance">
-        <br> {{ balance }}
-    </div>
-    <br> Monthly Interest
-    <div class="prog-table-col" ng-repeat="interest in balance_progression.monthly_interest">
-        <br> {{ interest }}
-    </div>
-    <br> Monthly Principal
-    <div class="prog-table-col" ng-repeat="principal in balance_progression.monthly_principal">
-        <br> {{ principal }}
-    </div>
-
-</div>
 
 
+<table id="prog-table" class="pure-table pure-table-striped" >
 
-<div id="pie-chart">
+    <tr>
+        <th>Payment Number</th>
+        <th>Monthly Payment</th>
+        <th>Monthly Principal</th>
+        <th>Monthly Interest</th>
+        <th>Remaining Balance</th>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td>{{ total_monthly_payment | currency }}</td>
+        <td ng-repeat="principal in balance_progression.monthly_principal">{{ principal | currency}}</td>
+        <td ng-repeat="interest in balance_progression.monthly_interest">{{ interest | currency}}</td>
+        <td ng-repeat="balance in balance_progression.house_balance">{{ balance | currency}}</td>
+    </tr>
+
+
+</table>
+
+
+
+<!-- <div id="pie-chart">
 
 PIE CHART DISPLAYED HERE
 
 
 
-</div>
+</div> -->
 
-</div>
-</div>
-
-<div class="footer">
 </div>
 
 
+<!-- <div class="footer">
+</div> -->
+
+</div>
 </body>
 
 
