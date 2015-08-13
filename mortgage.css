@@ -36,16 +36,17 @@
 	background-color: #f2f2f2;
 }
 
-.pure-table tr:last-child td:last-child {
+.pure-table-horizontal tr:last-child td:last-child {
 	text-align: center;
 }
 
-.pure-table tr:last-child td:last-child input{
+.pure-table-horizontal tr:last-child td:last-child input{
 	margin-left: 30px;
 }
 
 #prog-table{
 	width: 80%;
+	margin: 5%;
 }
 
 

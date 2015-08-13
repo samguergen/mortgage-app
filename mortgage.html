@@ -66,29 +66,25 @@
 
 
 
-<table id="prog-table"  >
+<table id="prog-table" class="pure-table pure-table-striped" >
 <thead>
     <tr>
         <th>Payment Number</th>
         <th>Monthly Payment</th>
-        <th>Remaining Balance</th>
         <th>Monthly Interest</th>
         <th>Monthly Principal</th>
-        
-        
+        <th>Remaining Balance</th>    
     </tr>
 </thead>
 
 <tbody>
-
     <tr ng-repeat="row in bal[0]">
-        <td>num</td>
+        <td>{{ $index + 1}}</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[0][$index] | currency}}</td>
         <td>{{ bal[1][$index] | currency}}</td>
         <td>{{ bal[2][$index] | currency}}</td>
+        <td>{{ bal[0][$index] | currency}}</td>
     </tr>     
-
 </tbody>
 
 </table>
@@ -106,8 +102,8 @@ PIE CHART DISPLAYED HERE
 </div>
 
 
-<!-- <div class="footer">
-</div> -->
+<div class="footer">
+</div>
 
 </div>
 </body>
