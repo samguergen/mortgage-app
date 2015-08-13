@@ -6,6 +6,8 @@ mortgageCtrl = function($scope){
 
     $scope.formData = {};
 
+    $scope.infos = [];
+
     $scope.balance_progression = {'house_balance': [], 'monthly_interest': [], 'monthly_principal': []};
     $scope.bal = [[],[],[]];
 
@@ -49,6 +51,8 @@ mortgageCtrl = function($scope){
 
         console.log(num_payments);
 
+        $scope.pay_index = 1;
+
         $scope.remaining_balance = $scope.formData.loan_amount;
 
         for (var x=0; x < num_payments ; x++) {
@@ -57,10 +61,16 @@ mortgageCtrl = function($scope){
 
             $scope.monthly_principal = month_payment - $scope.monthly_interest; 
 
-            $scope.bal[0].push($scope.remaining_balance - $scope.monthly_principal);
-            $scope.bal[1].push($scope.monthly_interest);
-            $scope.bal[2].push($scope.monthly_principal);
+            $scope.infos.push({
+                'pay_index': $scope.pay_index,
+                'leftover_balance': $scope.remaining_balance - $scope.monthly_principal,
+                'month_interest': $scope.monthly_interest,
+                'month_principal': $scope.monthly_principal,
+
+        });
+
             $scope.remaining_balance -= $scope.monthly_principal;
+            $scope.pay_index += 1;
             
         };
         
