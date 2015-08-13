@@ -22,14 +22,12 @@ mortgageCtrl = function($scope){
         num_payments = $scope.calculateNumPayments();
 
         if ($scope.formData.down_type == 1){
-            $scope.formData.downpayment = (($scope.formData.downpayment / 100 ) * $scope.formData.total_price)
+            $scope.formData.loan_amount = $scope.formData.total_price - (($scope.formData.downpayment / 100 ) * $scope.formData.total_price)
         }
         else if($scope.formData.down_type == 2){
-            $scope.formData.downpayment = $scope.formData.downpayment
+            $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment
         };
         
-        $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
-
 
         monthly_payment_nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         monthly_payment_denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
