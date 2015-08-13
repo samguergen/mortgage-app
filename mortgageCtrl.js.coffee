@@ -22,14 +22,12 @@ mortgageCtrl = function($scope){
         num_payments = $scope.calculateNumPayments();
 
         if ($scope.formData.down_type == 1){
-            $scope.formData.downpayment = (($scope.formData.downpayment / 100 ) * $scope.formData.total_price)
+            $scope.formData.loan_amount = $scope.formData.total_price - (($scope.formData.downpayment / 100 ) * $scope.formData.total_price)
         }
         else if($scope.formData.down_type == 2){
-            $scope.formData.downpayment = $scope.formData.downpayment
+            $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment
         };
         
-        $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
-
 
         monthly_payment_nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         monthly_payment_denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
@@ -46,25 +44,23 @@ mortgageCtrl = function($scope){
 
         num_payments = $scope.calculateNumPayments();
 
-        $scope.pay_index = 1;
-
-        $scope.remaining_balance = $scope.formData.loan_amount;
+        remaining_balance = $scope.formData.loan_amount;
 
         for (var x=0; x < num_payments ; x++) {
 
-            $scope.monthly_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
+            monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
 
-            $scope.monthly_principal = month_payment - $scope.monthly_interest; 
+            monthly_principal = month_payment - monthly_interest; 
 
             $scope.infos.push({
-                'pay_index': $scope.pay_index,
-                'leftover_balance': $scope.remaining_balance - $scope.monthly_principal,
-                'month_interest': $scope.monthly_interest,
-                'month_principal': $scope.monthly_principal,
+                'pay_index': x+1,
+                'leftover_balance': remaining_balance - monthly_principal,
+                'month_interest': monthly_interest,
+                'month_principal': monthly_principal,
         });
 
-            $scope.remaining_balance -= $scope.monthly_principal;
-            $scope.pay_index += 1;
+            remaining_balance -= monthly_principal;
+           
         };
         
     };
