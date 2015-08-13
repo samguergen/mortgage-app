@@ -8,16 +8,12 @@ mortgageCtrl = function($scope){
 
     $scope.infos = [];
 
-    $scope.balance_progression = {'house_balance': [], 'monthly_interest': [], 'monthly_principal': []};
-    $scope.bal = [[],[],[]];
-
 
     $scope.calculateNumPayments = function(){
 
         if ($scope.formData.mortgage_type === true){
             $scope.formData.number_of_payments = 360;
         };    
-        console.log($scope.formData.number_of_payments);
         return $scope.formData.number_of_payments
     };
 
@@ -37,6 +33,7 @@ mortgageCtrl = function($scope){
 
         nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
+
         $scope.total_monthly_payment = nominator / denominator;
 
         return $scope.total_monthly_payment;
@@ -66,12 +63,10 @@ mortgageCtrl = function($scope){
                 'leftover_balance': $scope.remaining_balance - $scope.monthly_principal,
                 'month_interest': $scope.monthly_interest,
                 'month_principal': $scope.monthly_principal,
-
         });
 
             $scope.remaining_balance -= $scope.monthly_principal;
             $scope.pay_index += 1;
-            
         };
         
     };
