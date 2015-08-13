@@ -4,7 +4,6 @@
 	padding: 30px;
 	margin: auto;
 	background-color: #F7F7F8;
-	height: 90%;
 }
 
 
@@ -26,13 +25,15 @@
 }
 
 
-.pure-table tr:first-child td:first-child {
+.pure-table-horizontal tr:first-child td:first-child {
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 20px;
+	background-color: #cbcbcb;
+	border: 1px solid black;
 }
 
-.pure-table th {
+.pure-table-horizontal th {
 	background-color: #f2f2f2;
 }
 
@@ -41,12 +42,18 @@
 }
 
 .pure-table-horizontal tr:last-child td:last-child input{
-	margin-left: 30px;
+	margin-left: 20px;
+	margin-bottom: 10px;
 }
 
 #prog-table{
 	width: 80%;
 	margin: 5%;
+	text-align: center;
+}
+
+#prog-table th{
+	border: 1px solid black;
 }
 
 
