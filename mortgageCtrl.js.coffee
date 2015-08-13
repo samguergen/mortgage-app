@@ -36,37 +36,24 @@ mortgageCtrl = function($scope){
     };
 
 
-    $scope.calculateMortgageProgression = function(house_balance){
+    $scope.calculateMortgageProgression = function(){
         month_payment = $scope.calculateMortgage();
 
-        if (typeof house_balance == "undefined"){ house_balance = $scope.formData.loan_amount };
-        $scope.remaining_balance = house_balance;
-        if ($scope.remaining_balance > 0){
+        $scope.remaining_balance = $scope.formData.loan_amount;
+
+        while  ($scope.remaining_balance >= 0.005){
 
             $scope.monthly_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
 
             $scope.monthly_principal = month_payment - $scope.monthly_interest; 
 
-            $scope.balance_progression.house_balance.push($scope.remaining_balance);
-            $scope.balance_progression.monthly_interest.push($scope.monthly_interest);
-            $scope.balance_progression.monthly_principal.push($scope.monthly_principal);
-
-            console.log($scope.bal);
-            console.log($scope.bal[1]);
-
-
-            $scope.bal[0].push($scope.remaining_balance);
+            $scope.bal[0].push($scope.remaining_balance - $scope.monthly_principal);
             $scope.bal[1].push($scope.monthly_interest);
             $scope.bal[2].push($scope.monthly_principal);
-
-            console.log($scope.bal);
-
-
-            $scope.remaining_balance = $scope.remaining_balance - $scope.monthly_principal;
+            $scope.remaining_balance -= $scope.monthly_principal;
             
-            $scope.calculateMortgageProgression($scope.remaining_balance);
         };
-        return $scope.remaining_balance;
+        
     };
 
     
