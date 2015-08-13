@@ -44,25 +44,23 @@ mortgageCtrl = function($scope){
 
         num_payments = $scope.calculateNumPayments();
 
-        $scope.pay_index = 1;
-
-        $scope.remaining_balance = $scope.formData.loan_amount;
+        remaining_balance = $scope.formData.loan_amount;
 
         for (var x=0; x < num_payments ; x++) {
 
-            $scope.monthly_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
+            monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
 
-            $scope.monthly_principal = month_payment - $scope.monthly_interest; 
+            monthly_principal = month_payment - monthly_interest; 
 
             $scope.infos.push({
-                'pay_index': $scope.pay_index,
-                'leftover_balance': $scope.remaining_balance - $scope.monthly_principal,
-                'month_interest': $scope.monthly_interest,
-                'month_principal': $scope.monthly_principal,
+                'pay_index': x+1,
+                'leftover_balance': remaining_balance - monthly_principal,
+                'month_interest': monthly_interest,
+                'month_principal': monthly_principal,
         });
 
-            $scope.remaining_balance -= $scope.monthly_principal;
-            $scope.pay_index += 1;
+            remaining_balance -= monthly_principal;
+           
         };
         
     };
