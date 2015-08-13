@@ -80,37 +80,14 @@
 </thead>
 
 <tbody>
-    <tr >
-        <td>num</td>
-        <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[0][0] | currency}}</td>
-        <td>{{ bal[1][0] | currency}}</td>
-        <td>{{ bal[2][0] | currency}}</td>
-    </tr>
 
-    <tr >
+    <tr ng-repeat="row in bal[0]">
         <td>num</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[0][1] | currency}}</td>
-        <td>{{ bal[1][1] | currency}}</td>
-        <td>{{ bal[2][1] | currency}}</td>
-    </tr>
-
-    <tr >
-        <td>num</td>
-        <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[0][2] | currency}}</td>
-        <td>{{ bal[1][2] | currency}}</td>
-        <td>{{ bal[2][2] | currency}}</td>
-    </tr>    
-
-    <tr >
-        <td>num</td>
-        <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[0][3] | currency}}</td>
-        <td>{{ bal[1][3] | currency}}</td>
-        <td>{{ bal[2][3] | currency}}</td>
-    </tr>      
+        <td>{{ bal[0][$index] | currency}}</td>
+        <td>{{ bal[1][$index] | currency}}</td>
+        <td>{{ bal[2][$index] | currency}}</td>
+    </tr>     
 
 </tbody>
 
