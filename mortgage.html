@@ -60,22 +60,36 @@
 				</td>
             </tr>          
 
-
- Your number of payments is:  {{ formData.number_of_payments }}
-
- Your total monthly payment is:  {{ total_monthly_payment | currency }}
- Your total monthly interest is:  {{ total_monthly_interest | currency }}
- Your total monthly principal is:  {{ total_monthly_principal | currency }}
- Your loan amount is:  {{ formData.loan_amount | currency }}
- Balance progression : {{ balance_progression }}
-
-
-
-
-
 </table>
 
 </form>
+
+
+
+<table id="prog-table" class="pure-table pure-table-striped" >
+<thead>
+    <tr>
+        <th>Payment Number</th>
+        <th>Monthly Payment</th>
+        <th>Monthly Interest</th>
+        <th>Monthly Principal</th>
+        <th>Remaining Balance</th>    
+    </tr>
+</thead>
+
+<tbody>
+    <tr ng-repeat="row in bal[0]">
+        <td>{{ $index + 1}}</td>
+        <td>{{ total_monthly_payment | currency }}</td>
+        <td>{{ bal[1][$index] | currency}}</td>
+        <td>{{ bal[2][$index] | currency}}</td>
+        <td>{{ bal[0][$index] | currency}}</td>
+    </tr>     
+</tbody>
+
+</table>
+
+
 
 <div id="pie-chart">
 
@@ -86,12 +100,12 @@ PIE CHART DISPLAYED HERE
 </div>
 
 </div>
-</div>
+
 
 <div class="footer">
 </div>
 
-
+</div>
 </body>
 
 
