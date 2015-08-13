@@ -31,10 +31,10 @@ mortgageCtrl = function($scope){
         $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment;
 
 
-        nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
-        denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
+        monthly_payment_nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
+        monthly_payment_denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
 
-        $scope.total_monthly_payment = nominator / denominator;
+        $scope.total_monthly_payment = monthly_payment_nominator / monthly_payment_denominator;
 
         return $scope.total_monthly_payment;
 
@@ -45,8 +45,6 @@ mortgageCtrl = function($scope){
         month_payment = $scope.calculateMortgage();
 
         num_payments = $scope.calculateNumPayments();
-
-        console.log(num_payments);
 
         $scope.pay_index = 1;
 
