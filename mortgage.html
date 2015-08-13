@@ -39,8 +39,8 @@
             <tr>
                 <th>Down Payment</th>
                 <td> <input type="number" ng-model="formData.downpayment" /> 
-                     <br> Amount <input type="radio" ng-model="formData.down_type" ng-value="1" /> 
-                     Percentage <input type="radio" ng-model="formData.down_type" ng-value="2" />
+                     <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Amount
+                     <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Percentage
                 </td>
             </tr>
             <tr>
@@ -78,12 +78,12 @@
 </thead>
 
 <tbody>
-    <tr ng-repeat="row in bal[0]">
-        <td>{{ $index + 1}}</td>
+    <tr ng-repeat="info in infos">
+        <td>{{ info.pay_index }}</td>
         <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ bal[1][$index] | currency}}</td>
-        <td>{{ bal[2][$index] | currency}}</td>
-        <td>{{ bal[0][$index] | currency}}</td>
+        <td>{{ info.month_interest | currency}}</td>
+        <td>{{ info.month_principal | currency}}</td>
+        <td>{{ info.leftover_balance | currency }}</td>
     </tr>     
 </tbody>
 
