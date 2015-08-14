@@ -1,4 +1,4 @@
-var app = angular.module("mortgageApp", ["highcharts-ng"]);
+var app = angular.module("mortgageApp", []);
 
 
 mortgageCtrl = function($scope){
