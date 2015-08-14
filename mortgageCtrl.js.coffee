@@ -62,6 +62,8 @@ mortgageCtrl = function($scope){
             remaining_balance -= monthly_principal;
            
         };
+
+        $scope.addSeries($scope.infos.pay_index);
         
     };
 
