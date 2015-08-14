@@ -64,6 +64,15 @@ mortgageCtrl = function($scope){
         };
 
         $scope.addSeries($scope.infos.pay_index);
+
+
+        console.log($scope.infos[3].leftover_balance);
+    
+        for (var i=0; i< $scope.infos.length; i++){
+            console.log($scope.infos[i].month_principal);
+            $scope.addSeries(($scope.infos[i].month_principal));
+            
+        }
         
     };
 
@@ -73,6 +82,10 @@ mortgageCtrl = function($scope){
     };
 
 
+    $scope.returnData = function(){
+
+    };
+
 
     $scope.chartConfig = {
         options: {
@@ -81,10 +94,11 @@ mortgageCtrl = function($scope){
             }
         },
         series: [{
-            data: [10, 15, 12, 8, 7]
+            // data: [10, 15, 12, 8, 7]
+            data: $scope.infos.leftover_balance
         }],
         title: {
-            text: 'Hello'
+            text: 'Cumulative Principal and Interest Payments Chart'
         },
 
         loading: false
