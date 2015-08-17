@@ -8,6 +8,8 @@ mortgageCtrl = function($scope){
 
     $scope.infos = [];
 
+    $scope.cumulative_infos = [];
+
 
     $scope.calculateNumPayments = function(){
 
@@ -59,25 +61,38 @@ mortgageCtrl = function($scope){
                 'month_principal': monthly_principal,
         });
 
+      
+
             remaining_balance -= monthly_principal;
            
         };
 
-        // $scope.addSeries($scope.infos.pay_index);
-
-
-        // console.log($scope.infos[3].leftover_balance);
     
         for (var i=0; i< $scope.infos.length; i++){
-            console.log($scope.infos[i].month_principal);
             $scope.addSeries(($scope.infos[i].month_principal));
             // $scope.addSeries(($scope.infos[i].month_interest));
             // $scope.addSeries(($scope.infos[i].leftover_balance));
             // $scope.addSeries(($scope.infos[i].pay_index));
-            
-        }
+        };
+
+        $scope.cumulative_infos = $scope.infos;
+
+        for (var i=0; i< ($scope.cumulative_infos.length-1); i++){
+            $scope.cumulative_infos[i].month_interest += $scope.cumulative_infos[i+1].month_interest;
+            // console.log($scope.cumulative_infos[i+1].month_interest);
+            console.log($scope.cumulative_infos[i].month_interest);             
+        };
+
+
+console.log('cumulative info for month interest is... ');
+console.log($scope.cumulative_infos[4].month_interest);
+// console.log($scope.infos.month_interest);
         
     };
+
+
+
+
 
     
     $scope.reset = function(){
@@ -98,7 +113,7 @@ mortgageCtrl = function($scope){
         },
         series: [{
             // data: [10, 15, 12, 8, 7]
-            data: $scope.infos.leftover_balance
+            data: []
         }],
         title: {
             text: 'Cumulative Principal and Interest Payments Chart'
