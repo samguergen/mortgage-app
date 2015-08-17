@@ -2,6 +2,7 @@ var app = angular.module("mortgageApp", ["highcharts-ng"]);
 
 
 mortgageCtrl = function($scope){
+    
     console.log('in da controller');
     $scope.formData = {};
     $scope.infos = [];
@@ -76,6 +77,7 @@ mortgageCtrl = function($scope){
     $scope.reset = function(){
         $scope.formData = "";
     };
+
 
     $scope.chartConfig = {
         options: {
