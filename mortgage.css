@@ -30,6 +30,10 @@
 	margin-left: 2%;
 }
 
+.pure-table-horizontal input[type="number"]{
+	height: 25px;
+}
+
 
 .pure-table-horizontal tr:first-child td:first-child {
 	font-weight: bold;
@@ -49,7 +53,7 @@
 
 .pure-table-horizontal tr:last-child td:last-child input{
 	margin-left: 20px;
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 
 #prog-table{
