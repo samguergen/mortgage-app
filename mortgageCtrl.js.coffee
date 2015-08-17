@@ -110,9 +110,11 @@ mortgageCtrl = function($scope){
         },
         series: [{
             // data: [10, 15, 12, 8, 7]
+            name: "Cumulative Interest",
             data: []
         },
         {
+            name: "Cumulative Principal",
             data: []
         }
 
