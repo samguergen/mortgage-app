@@ -76,22 +76,12 @@ mortgageCtrl = function($scope){
 
         
         for (var i=0; i< num_payments; i++){
-            // $scope.addSeries(($scope.cumulative_infos[i].month_interest));
-            // $scope.addPoints(i, $scope.cumulative_infos[i].month_interest );
             $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
             $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
         };
 
-
-
-
     };
 
-
-
-
-
-    
     $scope.reset = function(){
         $scope.formData = "";
     };
@@ -109,7 +99,6 @@ mortgageCtrl = function($scope){
             }
         },
         series: [{
-            // data: [10, 15, 12, 8, 7]
             name: "Cumulative Interest",
             data: []
         },
@@ -125,20 +114,6 @@ mortgageCtrl = function($scope){
 
         loading: false
     };
-
-    $scope.addSeries = function(info){
-        $scope.chartConfig.series.push({
-            data: info
-        })
-
-    };
-
-    // $scope.addPoints = function (pay_index, info_array) {
-    //     var seriesArray = $scope.chartConfig.series
-    //     console.log('Series array inside addPoints is ');
-    //     console.log(seriesArray);
-    //     seriesArray[pay_index].data = seriesArray[pay_index].data.concat(info_array)
-    // };
 
     $scope.addPointInterest = function (pay_index, info_array) {
         var seriesArray = $scope.chartConfig.series
