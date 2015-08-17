@@ -2,7 +2,7 @@ var app = angular.module("mortgageApp", ["highcharts-ng"]);
 
 
 mortgageCtrl = function($scope){
-    
+
     console.log('in da controller');
     $scope.formData = {};
     $scope.infos = [];
@@ -95,6 +95,19 @@ mortgageCtrl = function($scope){
         }
 
         ],
+
+        yAxis : {
+            title: {
+                text: "Amount (in $)"
+            }
+        },
+
+        xAxis : {
+            title: {
+                text: "Payment Number"
+            }
+        },        
+
         title: {
             text: 'Cumulative Principal and Interest Payments'
         },
