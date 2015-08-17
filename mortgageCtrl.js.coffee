@@ -66,8 +66,8 @@ mortgageCtrl = function($scope){
             console.log($scope.cumulative_infos[i].month_interest);           
 
             if (i > 0){
-                $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
-                $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
+                $scope.addPointInterest($scope.cumulative_infos[i].month_interest );
+                $scope.addPointPrincipal($scope.cumulative_infos[i].month_principal );
             }              
         };
 
@@ -100,13 +100,13 @@ mortgageCtrl = function($scope){
         loading: false
     };
 
-    $scope.addPointInterest = function (pay_index, info_array) {
+    $scope.addPointInterest = function (info_array) {
         var seriesArray = $scope.chartConfig.series
         seriesArray[0].data = seriesArray[0].data.concat(info_array);
     };
 
 
-    $scope.addPointPrincipal = function (pay_index, info_array) {
+    $scope.addPointPrincipal = function (info_array) {
         var seriesArray = $scope.chartConfig.series   
         seriesArray[1].data = seriesArray[1].data.concat(info_array);
     };
