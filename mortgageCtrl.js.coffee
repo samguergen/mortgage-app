@@ -3,7 +3,6 @@ var app = angular.module("mortgageApp", ["highcharts-ng"]);
 
 mortgageCtrl = function($scope){
     console.log('in da controller');
-
     $scope.formData = {};
     $scope.infos = [];
 
@@ -26,7 +25,6 @@ mortgageCtrl = function($scope){
             $scope.formData.loan_amount = $scope.formData.total_price - $scope.formData.downpayment
         };
         
-
         monthly_payment_nominator = ((($scope.formData.annual_interest_rate / 12) / 100) * $scope.formData.loan_amount * (Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments)));
         monthly_payment_denominator =  Math.pow((1+ (($scope.formData.annual_interest_rate / 12) / 100)), $scope.formData.number_of_payments) -1;
 
@@ -38,11 +36,13 @@ mortgageCtrl = function($scope){
 
 
     $scope.calculateMortgageProgression = function(){
+
         month_payment = $scope.calculateMortgage();
         num_payments = $scope.calculateNumPayments();
         remaining_balance = $scope.formData.loan_amount;
 
         for (var x=0; x < num_payments ; x++) {
+
             monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
             monthly_principal = month_payment - monthly_interest; 
 
@@ -70,23 +70,12 @@ mortgageCtrl = function($scope){
                 $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
             }              
         };
-        
-        // for (var i=0; i< num_payments; i++){
-        //     $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
-        //     $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
-        // };
 
     };
 
     $scope.reset = function(){
         $scope.formData = "";
     };
-
-
-    $scope.returnData = function(){
-
-    };
-
 
     $scope.chartConfig = {
         options: {
@@ -113,27 +102,14 @@ mortgageCtrl = function($scope){
 
     $scope.addPointInterest = function (pay_index, info_array) {
         var seriesArray = $scope.chartConfig.series
-        console.log('info_array parameter is ');
-        console.log(info_array);
-        console.log('Series array[0] inside addPointer is ');
-        console.log(seriesArray[0]);     
-
         seriesArray[0].data = seriesArray[0].data.concat(info_array);
-
-        console.log('Series array[0].data inside addPointer is ');
-        console.log(seriesArray[0].data);
     };
 
 
     $scope.addPointPrincipal = function (pay_index, info_array) {
         var seriesArray = $scope.chartConfig.series   
-
         seriesArray[1].data = seriesArray[1].data.concat(info_array);
-
-        // console.log('Series array[0].data inside addPointer is ');
-        // console.log(seriesArray[0].data);
     };
-
 
   }
 
