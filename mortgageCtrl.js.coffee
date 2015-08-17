@@ -73,13 +73,11 @@ mortgageCtrl = function($scope){
 
         for (var i=1; i< ($scope.cumulative_infos.length); i++){
             $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
-            console.log($scope.cumulative_infos[i].month_interest);             
+            $scope.cumulative_infos[i].month_principal = $scope.cumulative_infos[i].month_principal + $scope.cumulative_infos[i-1].month_principal;
+            $scope.cumulative_infos[i].leftover_balance = $scope.cumulative_infos[i].leftover_balance + $scope.cumulative_infos[i-1].leftover_balance;                        
+            console.log($scope.cumulative_infos[i].pay_index);             
         };
 
-
-    console.log('cumulative info for month interest is... ');
-// console.log($scope.cumulative_infos[4].month_interest);
-// console.log($scope.infos.month_interest);
         
     };
 
