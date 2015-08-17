@@ -57,16 +57,19 @@
 }
 
 
-#pie-chart {
+/*#pie-chart {
 	float: left
-	margin: 50px;
-	margin-left: 660px;
-	border: 2px solid black;
-	border-radius: 100%;
 	width: 30%;
 	font-size: 30px;
 	padding: 100px;
 
+}*/
+
+
+#chart1 {
+	float: left;
+	width: 60%;
+	margin-left: 30px;
 }
 
 .footer {
