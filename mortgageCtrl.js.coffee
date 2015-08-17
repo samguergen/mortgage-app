@@ -43,15 +43,11 @@ mortgageCtrl = function($scope){
 
     $scope.calculateMortgageProgression = function(){
         month_payment = $scope.calculateMortgage();
-
         num_payments = $scope.calculateNumPayments();
-
         remaining_balance = $scope.formData.loan_amount;
 
         for (var x=0; x < num_payments ; x++) {
-
             monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
-
             monthly_principal = month_payment - monthly_interest; 
 
             $scope.infos.push({
@@ -59,33 +55,31 @@ mortgageCtrl = function($scope){
                 'leftover_balance': remaining_balance - monthly_principal,
                 'month_interest': monthly_interest,
                 'month_principal': monthly_principal,
-        });
-
-      
+            });
 
             remaining_balance -= monthly_principal;
            
         };
 
     
-        for (var i=0; i< $scope.infos.length; i++){
-            $scope.addSeries(($scope.infos[i].month_principal));
+        // for (var i=0; i< $scope.infos.length; i++){
+        //     $scope.addSeries(($scope.infos[i].month_principal));
             // $scope.addSeries(($scope.infos[i].month_interest));
             // $scope.addSeries(($scope.infos[i].leftover_balance));
             // $scope.addSeries(($scope.infos[i].pay_index));
-        };
+        // };
 
         $scope.cumulative_infos = $scope.infos;
 
-        for (var i=0; i< ($scope.cumulative_infos.length-1); i++){
-            $scope.cumulative_infos[i].month_interest += $scope.cumulative_infos[i+1].month_interest;
+        for (var i=1; i< ($scope.cumulative_infos.length); i++){
+            $scope.cumulative_infos[i].month_interest = $scope.infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
             // console.log($scope.cumulative_infos[i+1].month_interest);
             console.log($scope.cumulative_infos[i].month_interest);             
         };
 
 
-console.log('cumulative info for month interest is... ');
-console.log($scope.cumulative_infos[4].month_interest);
+    console.log('cumulative info for month interest is... ');
+// console.log($scope.cumulative_infos[4].month_interest);
 // console.log($scope.infos.month_interest);
         
     };
