@@ -41,36 +41,49 @@ mortgageCtrl = function($scope){
         month_payment = $scope.calculateMortgage();
         num_payments = $scope.calculateNumPayments();
         remaining_balance = $scope.formData.loan_amount;
+        interest_cumul_count = 0;
+        principal_cumul_count = 0;        
 
         for (var x=0; x < num_payments ; x++) {
 
             monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
             monthly_principal = month_payment - monthly_interest; 
 
+            interest_cumul_count += monthly_interest;
+            principal_cumul_count += monthly_principal;           
+
             $scope.infos.push({
                 'pay_index': x+1,
                 'leftover_balance': remaining_balance - monthly_principal,
                 'month_interest': monthly_interest,
                 'month_principal': monthly_principal,
+                'cumul_interest': interest_cumul_count,
+                'cumul_principal': principal_cumul_count
             });
 
             remaining_balance -= monthly_principal;
+
+            if (x > 0){
+                $scope.addPointInterest($scope.infos[x].cumul_interest );
+                $scope.addPointPrincipal($scope.infos[x].cumul_principal );
+            }   
+
            
         };
 
-        $scope.cumulative_infos = $scope.infos;
+        // $scope.cumulative_infos = $scope.infos;
 
-        for (var i=1; i< num_payments; i++){
-            $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
-            $scope.cumulative_infos[i].month_principal = $scope.cumulative_infos[i].month_principal + $scope.cumulative_infos[i-1].month_principal;
-            $scope.cumulative_infos[i].leftover_balance = $scope.cumulative_infos[i].leftover_balance + $scope.cumulative_infos[i-1].leftover_balance;                        
-            console.log($scope.cumulative_infos[i].month_interest);           
+        // for (var i=1; i< num_payments; i++){
+        //     $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
+        //     $scope.cumulative_infos[i].month_principal = $scope.cumulative_infos[i].month_principal + $scope.cumulative_infos[i-1].month_principal;
+        //     $scope.cumulative_infos[i].leftover_balance = $scope.cumulative_infos[i].leftover_balance + $scope.cumulative_infos[i-1].leftover_balance;                        
+        //     console.log($scope.cumulative_infos[i].month_interest);           
 
-            if (i > 0){
-                $scope.addPointInterest($scope.cumulative_infos[i].month_interest );
-                $scope.addPointPrincipal($scope.cumulative_infos[i].month_principal );
-            }              
-        };
+        //     if (i > 0){
+        //         $scope.addPointInterest($scope.cumulative_infos[i].month_interest );
+        //         $scope.addPointPrincipal($scope.cumulative_infos[i].month_principal );
+        //     }              
+        // };
 
     };
 
