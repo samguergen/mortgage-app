@@ -72,8 +72,7 @@ mortgageCtrl = function($scope){
         $scope.cumulative_infos = $scope.infos;
 
         for (var i=1; i< ($scope.cumulative_infos.length); i++){
-            $scope.cumulative_infos[i].month_interest = $scope.infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
-            // console.log($scope.cumulative_infos[i+1].month_interest);
+            $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
             console.log($scope.cumulative_infos[i].month_interest);             
         };
 
