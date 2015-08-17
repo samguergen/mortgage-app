@@ -61,14 +61,6 @@ mortgageCtrl = function($scope){
            
         };
 
-    
-        // for (var i=0; i< $scope.infos.length; i++){
-        //     $scope.addSeries(($scope.infos[i].month_principal));
-            // $scope.addSeries(($scope.infos[i].month_interest));
-            // $scope.addSeries(($scope.infos[i].leftover_balance));
-            // $scope.addSeries(($scope.infos[i].pay_index));
-        // };
-
         $scope.cumulative_infos = $scope.infos;
 
         for (var i=1; i< ($scope.cumulative_infos.length); i++){
@@ -79,6 +71,15 @@ mortgageCtrl = function($scope){
         };
 
         
+        for (var i=0; i< $scope.cumulative_infos.length; i++){
+            // $scope.addSeries(($scope.cumulative_infos[i].month_principal));
+            $scope.addSeries(($scope.cumulative_infos[i].month_interest));
+            // $scope.addSeries(($scope.cumulative_infos[i].pay_index));
+        };
+
+
+
+
     };
 
 
