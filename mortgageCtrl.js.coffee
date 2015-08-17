@@ -78,7 +78,8 @@ mortgageCtrl = function($scope){
         for (var i=0; i< num_payments; i++){
             // $scope.addSeries(($scope.cumulative_infos[i].month_interest));
             // $scope.addPoints(i, $scope.cumulative_infos[i].month_interest );
-            $scope.addPointer(i, $scope.cumulative_infos[i].month_interest );
+            $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
+            $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
         };
 
 
@@ -110,7 +111,12 @@ mortgageCtrl = function($scope){
         series: [{
             // data: [10, 15, 12, 8, 7]
             data: []
-        }],
+        },
+        {
+            data: []
+        }
+
+        ],
         title: {
             text: 'Cumulative Principal and Interest Payments Chart'
         },
@@ -132,15 +138,27 @@ mortgageCtrl = function($scope){
     //     seriesArray[pay_index].data = seriesArray[pay_index].data.concat(info_array)
     // };
 
-    $scope.addPointer = function (pay_index, info_array) {
+    $scope.addPointInterest = function (pay_index, info_array) {
         var seriesArray = $scope.chartConfig.series
         console.log('info_array parameter is ');
         console.log(info_array);
         console.log('Series array[0] inside addPointer is ');
-        console.log(seriesArray[0]);       
+        console.log(seriesArray[0]);     
+
         seriesArray[0].data = seriesArray[0].data.concat(info_array);
+
         console.log('Series array[0].data inside addPointer is ');
         console.log(seriesArray[0].data);
+    };
+
+
+    $scope.addPointPrincipal = function (pay_index, info_array) {
+        var seriesArray = $scope.chartConfig.series   
+
+        seriesArray[1].data = seriesArray[1].data.concat(info_array);
+
+        // console.log('Series array[0].data inside addPointer is ');
+        // console.log(seriesArray[0].data);
     };
 
 
