@@ -61,21 +61,24 @@ mortgageCtrl = function($scope){
            
         };
 
+
+
         $scope.cumulative_infos = $scope.infos;
 
-        for (var i=1; i< ($scope.cumulative_infos.length); i++){
+        for (var i=1; i< $scope.cumulative_infos.length; i++){
             $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
             $scope.cumulative_infos[i].month_principal = $scope.cumulative_infos[i].month_principal + $scope.cumulative_infos[i-1].month_principal;
             $scope.cumulative_infos[i].leftover_balance = $scope.cumulative_infos[i].leftover_balance + $scope.cumulative_infos[i-1].leftover_balance;                        
-            console.log($scope.cumulative_infos[i].pay_index);             
+            console.log($scope.cumulative_infos[i].month_interest);             
         };
 
+
+
         
-        for (var i=0; i< $scope.cumulative_infos.length; i++){
-            // $scope.addSeries(($scope.cumulative_infos[i].month_principal));
-            $scope.addSeries(($scope.cumulative_infos[i].month_interest));
-            // $scope.addSeries(($scope.cumulative_infos[i].pay_index));
-        };
+        // for (var i=0; i< $scope.cumulative_infos.length; i++){
+        //     // $scope.addSeries(($scope.cumulative_infos[i].month_interest));
+        //     $scope.addPoints
+        // };
 
 
 
@@ -119,7 +122,12 @@ mortgageCtrl = function($scope){
             data: info
         })
 
-};
+    };
+
+    $scope.addPoints = function (pay_index, info_array) {
+        var seriesArray = $scope.chartConfig.series
+        seriesArray[pay_index].data = seriesArray[pay_index].data.concat(info_array)
+    };
 
 
 
