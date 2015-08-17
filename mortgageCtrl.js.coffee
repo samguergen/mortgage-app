@@ -75,10 +75,11 @@ mortgageCtrl = function($scope){
 
 
         
-        // for (var i=0; i< $scope.cumulative_infos.length; i++){
-        //     // $scope.addSeries(($scope.cumulative_infos[i].month_interest));
-        //     $scope.addPoints
-        // };
+        for (var i=0; i< num_payments; i++){
+            // $scope.addSeries(($scope.cumulative_infos[i].month_interest));
+            // $scope.addPoints(i, $scope.cumulative_infos[i].month_interest );
+            $scope.addPointer(i, $scope.cumulative_infos[i].month_interest );
+        };
 
 
 
@@ -124,11 +125,25 @@ mortgageCtrl = function($scope){
 
     };
 
-    $scope.addPoints = function (pay_index, info_array) {
-        var seriesArray = $scope.chartConfig.series
-        seriesArray[pay_index].data = seriesArray[pay_index].data.concat(info_array)
-    };
+    // $scope.addPoints = function (pay_index, info_array) {
+    //     var seriesArray = $scope.chartConfig.series
+    //     console.log('Series array inside addPoints is ');
+    //     console.log(seriesArray);
+    //     seriesArray[pay_index].data = seriesArray[pay_index].data.concat(info_array)
+    // };
 
+    $scope.addPointer = function (pay_index, info_array) {
+        var seriesArray = $scope.chartConfig.series
+        console.log('Series array inside addPointer is ');
+        console.log(seriesArray);
+        console.log('Series array[0] inside addPointer is ');
+        console.log(seriesArray[0]);
+        console.log('Series array[0].data inside addPointer is ');
+        console.log(seriesArray[0].data);        
+        // seriesArray[0].data = seriesArray[pay_index].data.concat(info_array);
+        // console.log('Series array[0].data inside addPointer is ');
+        // console.log(seriesArray[0].data);
+    };
 
 
   }
