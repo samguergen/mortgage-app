@@ -5,11 +5,7 @@ mortgageCtrl = function($scope){
     console.log('in da controller');
 
     $scope.formData = {};
-
     $scope.infos = [];
-
-    $scope.cumulative_infos = [];
-
 
     $scope.calculateNumPayments = function(){
 
@@ -61,24 +57,24 @@ mortgageCtrl = function($scope){
            
         };
 
-
-
         $scope.cumulative_infos = $scope.infos;
 
         for (var i=1; i< num_payments; i++){
             $scope.cumulative_infos[i].month_interest = $scope.cumulative_infos[i].month_interest + $scope.cumulative_infos[i-1].month_interest;
             $scope.cumulative_infos[i].month_principal = $scope.cumulative_infos[i].month_principal + $scope.cumulative_infos[i-1].month_principal;
             $scope.cumulative_infos[i].leftover_balance = $scope.cumulative_infos[i].leftover_balance + $scope.cumulative_infos[i-1].leftover_balance;                        
-            console.log($scope.cumulative_infos[i].month_interest);             
+            console.log($scope.cumulative_infos[i].month_interest);           
+
+            if (i > 0){
+                $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
+                $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
+            }              
         };
-
-
-
         
-        for (var i=0; i< num_payments; i++){
-            $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
-            $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
-        };
+        // for (var i=0; i< num_payments; i++){
+        //     $scope.addPointInterest(i, $scope.cumulative_infos[i].month_interest );
+        //     $scope.addPointPrincipal(i, $scope.cumulative_infos[i].month_principal );
+        // };
 
     };
 
