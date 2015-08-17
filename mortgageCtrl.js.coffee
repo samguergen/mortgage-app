@@ -94,7 +94,7 @@ mortgageCtrl = function($scope){
 
         ],
         title: {
-            text: 'Cumulative Principal and Interest Payments Chart'
+            text: 'Cumulative Principal and Interest Payments'
         },
 
         loading: false
