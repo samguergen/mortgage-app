@@ -134,15 +134,13 @@ mortgageCtrl = function($scope){
 
     $scope.addPointer = function (pay_index, info_array) {
         var seriesArray = $scope.chartConfig.series
-        console.log('Series array inside addPointer is ');
-        console.log(seriesArray);
+        console.log('info_array parameter is ');
+        console.log(info_array);
         console.log('Series array[0] inside addPointer is ');
-        console.log(seriesArray[0]);
+        console.log(seriesArray[0]);       
+        seriesArray[0].data = seriesArray[0].data.concat(info_array);
         console.log('Series array[0].data inside addPointer is ');
-        console.log(seriesArray[0].data);        
-        // seriesArray[0].data = seriesArray[pay_index].data.concat(info_array);
-        // console.log('Series array[0].data inside addPointer is ');
-        // console.log(seriesArray[0].data);
+        console.log(seriesArray[0].data);
     };
 
 
