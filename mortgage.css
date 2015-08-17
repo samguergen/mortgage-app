@@ -19,16 +19,26 @@
 
 
 .pure-table {
-	width: 25%;
+	width: 30%;
 	border: 1px solid black;
 	float: left;
+	height: 50px;
+	font-size: 13px;
+}
+
+.pure-table-horizontal{
+	margin-left: 2%;
+}
+
+.pure-table-horizontal input[type="number"]{
+	height: 25px;
 }
 
 
 .pure-table-horizontal tr:first-child td:first-child {
 	font-weight: bold;
-	font-size: 16px;
-	padding: 20px;
+	font-size: 14px;
+	padding: 15px;
 	background-color: #cbcbcb;
 	border: 1px solid black;
 }
@@ -43,7 +53,6 @@
 
 .pure-table-horizontal tr:last-child td:last-child input{
 	margin-left: 20px;
-	margin-bottom: 10px;
 }
 
 #prog-table{
@@ -56,17 +65,10 @@
 	border: 1px solid black;
 }
 
-
-#pie-chart {
-	float: left
-	margin: 50px;
-	margin-left: 660px;
-	border: 2px solid black;
-	border-radius: 100%;
-	width: 30%;
-	font-size: 30px;
-	padding: 100px;
-
+#area-chart {
+	float: left;
+	width: 60%;
+	margin-left: 7%;
 }
 
 .footer {
