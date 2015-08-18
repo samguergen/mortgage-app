@@ -77,52 +77,22 @@ mortgageCtrl = function($scope){
         $scope.formData = "";
     };
 
+    $scope.series = ['Cumulative Interest', 'Cumulative Principal'] ;
 
-    $scope.chartConfig = {
-        options: {
-            chart: {
-                type: 'area'
-            }
-        },
-        series: [{
-            name: "Cumulative Interest",
-            data: []
-        },
-        {
-            name: "Cumulative Principal",
-            data: []
-        }
+    $scope.labels = [];
 
-        ],
+    $scope.data = [ [], [] ] ;
 
-        yAxis : {
-            title: {
-                text: "Amount (in $)"
-            }
-        },
-
-        xAxis : {
-            title: {
-                text: "Payment Number"
-            }
-        },        
-
-        title: {
-            text: 'Cumulative Principal and Interest Payments'
-        },
-
-        loading: false
-    };
 
     $scope.addPointInterest = function (info_array) {
-        var seriesArray = $scope.chartConfig.series
-        seriesArray[0].data = seriesArray[0].data.concat(info_array);
+        var seriesArray = $scope.data;
+        seriesArray[0] = seriesArray[0].concat(info_array);
     };
 
 
     $scope.addPointPrincipal = function (info_array) {
-        var seriesArray = $scope.chartConfig.series   
-        seriesArray[1].data = seriesArray[1].data.concat(info_array);
+        var seriesArray = $scope.data; 
+        seriesArray[1] = seriesArray[1].concat(info_array);
     };
 
   }
