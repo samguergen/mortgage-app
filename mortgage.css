@@ -71,6 +71,12 @@
 	margin-left: 7%;
 }
 
+/*#line{
+	float: left;
+    height: 100px;
+    width: 60%;
+}*/
+
 .footer {
 	clear: both;
 }
