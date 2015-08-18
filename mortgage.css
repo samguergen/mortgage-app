@@ -65,17 +65,18 @@
 	border: 1px solid black;
 }
 
-#area-chart {
+/*#area-chart {
 	float: left;
 	width: 60%;
 	margin-left: 7%;
-}
-
-/*#line{
-	float: left;
-    height: 100px;
-    width: 60%;
 }*/
+
+#line{
+	float: left;
+    height: 200px;
+    width: 50%;
+    margin: 20px;
+}
 
 .footer {
 	clear: both;
