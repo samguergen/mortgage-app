@@ -71,7 +71,18 @@ mortgageCtrl = function($scope){
            
         };
 
+        console.log($scope.data);
+
     };
+
+      $scope.range =  function(start, count) {
+        return Array.apply(0, Array(count))
+                    .map(function (element, index) { 
+                             return index + start;  
+                         });
+    }
+
+
 
     $scope.reset = function(){
         $scope.formData = "";
@@ -79,9 +90,14 @@ mortgageCtrl = function($scope){
 
     $scope.series = ['Cumulative Interest', 'Cumulative Principal'] ;
 
-    $scope.labels = [];
+    $scope.labels = $scope.range(0,360);
 
     $scope.data = [ [], [] ] ;
+
+
+    $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+    };
 
 
     $scope.addPointInterest = function (info_array) {
