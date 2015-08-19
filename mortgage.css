@@ -72,6 +72,11 @@ canvas{
     height: auto !important;
 }
 
+#y-axis{
+	transform: rotate(90deg);
+	float: left;
+}
+
 #line{
 	float: left;
     height: 200px;
