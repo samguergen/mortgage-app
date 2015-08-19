@@ -8,18 +8,24 @@ mortgageCtrl = function($scope){
     $scope.infos = [];
     $scope.labelStore = [];
     $scope.months = ['January', 'February','March', 'April','May','June', 'July', 'August','September','October', 'November','December'];
-
-    $scope.years = function(){
+    $scope.years = [];
+    
+    $scope.yearCalc = function(){
         // num_years = ($scope.calculateNumPayments / 12);
         num_years = 360 /12;
         console.log('Mortgage years are ' + num_years);
-        present = new Date();
-        console.log('Present date is '+ present);
-        present = present.getFullYear();
-        console.log('Present year is '+ present);
-        // return present;
-        endyear = present + 30;
-        console.log(endyear);
+        startdate = new Date();
+        console.log('startdate is '+ startdate);
+        startyear = startdate.getFullYear();
+        console.log('startyear year is '+ startyear);
+        endyear = startyear + 30;
+        console.log('End year is ' + endyear);
+
+        for (var i=startyear; i<endyear+1; i++){
+            $scope.years.push(i);
+        };
+        console.log('Years are '+ $scope.years);
+        // enddate = new Date(endyear, 01, 01);
     };
 
     $scope.calculateNumPayments = function(){
@@ -89,7 +95,7 @@ mortgageCtrl = function($scope){
 
     };
 
-      $scope.range =  function(start, count) {
+    $scope.range =  function(start, count) {
         return Array.apply(0, Array(count))
                     .map(function (element, index) { 
                              return index + start;  
@@ -150,7 +156,7 @@ mortgageCtrl = function($scope){
 
 
 
-console.log($scope.years());
+console.log($scope.yearCalc());
 
   }
 
