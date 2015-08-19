@@ -7,25 +7,16 @@ mortgageCtrl = function($scope){
     $scope.formData = {};
     $scope.infos = [];
     $scope.labelStore = [];
-    $scope.months = ['January', 'February','March', 'April','May','June', 'July', 'August','September','October', 'November','December'];
     $scope.years = [];
     
     $scope.yearCalc = function(){
-        // num_years = ($scope.calculateNumPayments / 12);
         num_years = 360 /12;
-        // console.log('Mortgage years are ' + num_years);
         startdate = new Date();
-        // console.log('startdate is '+ startdate);
         startyear = startdate.getFullYear();
-        // console.log('startyear year is '+ startyear);
         endyear = startyear + 30;
-        // console.log('End year is ' + endyear);
-
         for (var i=startyear; i<endyear+1; i++){
             $scope.years.push(i);
         };
-
-        // console.log('Years are '+ $scope.years);
         return $scope.years;
     };
 
@@ -89,11 +80,7 @@ mortgageCtrl = function($scope){
                 $scope.addPointInterest($scope.infos[x].cumul_interest );
                 $scope.addPointPrincipal($scope.infos[x].cumul_principal );
             }   
-
-           
         };
-
-
     };
 
     $scope.range =  function(start, count) {
@@ -101,9 +88,7 @@ mortgageCtrl = function($scope){
                     .map(function (element, index) { 
                              return index + start;  
                          });
-    }
-
-
+    };
 
     $scope.reset = function(){
         $scope.formData = "";
@@ -117,8 +102,6 @@ mortgageCtrl = function($scope){
                 years.shift();
             }
             else {
-                // x = x.toString();
-                // $scope.labelStore.push(x);
                 $scope.labelStore.push('');
             };
         };
