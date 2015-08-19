@@ -9,6 +9,19 @@ mortgageCtrl = function($scope){
     $scope.labelStore = [];
     $scope.months = ['January', 'February','March', 'April','May','June', 'July', 'August','September','October', 'November','December'];
 
+    $scope.years = function(){
+        // num_years = ($scope.calculateNumPayments / 12);
+        num_years = 360 /12;
+        console.log('Mortgage years are ' + num_years);
+        present = new Date();
+        console.log('Present date is '+ present);
+        present = present.getFullYear();
+        console.log('Present year is '+ present);
+        // return present;
+        endyear = present + 30;
+        console.log(endyear);
+    };
+
     $scope.calculateNumPayments = function(){
 
         if ($scope.formData.mortgage_type === true){
@@ -73,7 +86,6 @@ mortgageCtrl = function($scope){
            
         };
 
-        console.log($scope.data);
 
     };
 
@@ -136,7 +148,12 @@ mortgageCtrl = function($scope){
         seriesArray[1] = seriesArray[1].concat(info_array);
     };
 
+
+
+console.log($scope.years());
+
   }
+
 
 
  app.controller("MortgageCtrl", ['$scope', mortgageCtrl] );
