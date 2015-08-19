@@ -28,6 +28,7 @@
 
 .pure-table-horizontal{
 	margin-left: 2%;
+	margin-right: 2%;
 }
 
 .pure-table-horizontal input[type="number"]{
@@ -65,11 +66,11 @@
 	border: 1px solid black;
 }
 
-/*#area-chart {
-	float: left;
-	width: 60%;
-	margin-left: 7%;
-}*/
+canvas{
+    width: 100% !important;
+    max-width: 700px;
+    height: auto !important;
+}
 
 #line{
 	float: left;
