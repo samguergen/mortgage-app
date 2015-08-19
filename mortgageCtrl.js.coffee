@@ -7,6 +7,7 @@ mortgageCtrl = function($scope){
     $scope.formData = {};
     $scope.infos = [];
     $scope.labelStore = [];
+    $scope.months = ['January', 'February','March', 'April','May','June', 'July', 'August','September','October', 'November','December'];
 
     $scope.calculateNumPayments = function(){
 
