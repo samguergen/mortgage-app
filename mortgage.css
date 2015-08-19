@@ -74,6 +74,11 @@ canvas{
     left: 40%;
 }
 
+#graph-title{
+	font-size: 14px;
+	font-weight: bold;
+}
+
 #y-axis{
 	transform: rotate(270deg);
 	float: left;
@@ -82,7 +87,7 @@ canvas{
 }
 
 #x-axis{
-	margin-top: 5%;
+	margin-top: 27%;
 }
 
 /*#line{
