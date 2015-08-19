@@ -97,7 +97,8 @@ mortgageCtrl = function($scope){
 
     $scope.chartLabel = function(){
         years = $scope.yearCalc();
-        for (var x=0; x<360; x++){
+        num_payments = $scope.num_of_payments;
+        for (var x=0; x<num_payments; x++){
             if (x==0 || x % 12 == 0) {
                 $scope.labelStore.push(years[0]);
                 years.shift();
