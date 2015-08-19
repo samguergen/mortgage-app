@@ -24,8 +24,9 @@ mortgageCtrl = function($scope){
         for (var i=startyear; i<endyear+1; i++){
             $scope.years.push(i);
         };
+
         console.log('Years are '+ $scope.years);
-        // enddate = new Date(endyear, 01, 01);
+        return $scope.years;
     };
 
     $scope.calculateNumPayments = function(){
@@ -109,10 +110,11 @@ mortgageCtrl = function($scope){
     };
 
     $scope.chartLabel = function(){
+        years = $scope.yearCalc();
         for (var x=0; x<360; x++){
             if (x==0 || x % 12 == 0) {
-                $scope.labelStore.push($scope.months[0]);
-                $scope.months.shift();
+                $scope.labelStore.push(years[0]);
+                years.shift();
             }
             else {
                 x = x.toString();
