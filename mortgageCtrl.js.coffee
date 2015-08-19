@@ -13,19 +13,19 @@ mortgageCtrl = function($scope){
     $scope.yearCalc = function(){
         // num_years = ($scope.calculateNumPayments / 12);
         num_years = 360 /12;
-        console.log('Mortgage years are ' + num_years);
+        // console.log('Mortgage years are ' + num_years);
         startdate = new Date();
-        console.log('startdate is '+ startdate);
+        // console.log('startdate is '+ startdate);
         startyear = startdate.getFullYear();
-        console.log('startyear year is '+ startyear);
+        // console.log('startyear year is '+ startyear);
         endyear = startyear + 30;
-        console.log('End year is ' + endyear);
+        // console.log('End year is ' + endyear);
 
         for (var i=startyear; i<endyear+1; i++){
             $scope.years.push(i);
         };
 
-        console.log('Years are '+ $scope.years);
+        // console.log('Years are '+ $scope.years);
         return $scope.years;
     };
 
@@ -117,8 +117,9 @@ mortgageCtrl = function($scope){
                 years.shift();
             }
             else {
-                x = x.toString();
-                $scope.labelStore.push(x);
+                // x = x.toString();
+                // $scope.labelStore.push(x);
+                $scope.labelStore.push('');
             };
         };
         console.log($scope.labelStore);
