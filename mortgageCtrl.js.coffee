@@ -6,6 +6,7 @@ mortgageCtrl = function($scope){
     console.log('in da controller');
     $scope.formData = {};
     $scope.infos = [];
+    $scope.labelStore = [];
 
     $scope.calculateNumPayments = function(){
 
@@ -88,9 +89,25 @@ mortgageCtrl = function($scope){
         $scope.formData = "";
     };
 
+    $scope.chartLabel = function(){
+        for (var x=0; x<360; x++){
+            if (x==0 || x % 12 == 0) {
+                $scope.labelStore.push($scope.months[0]);
+                $scope.months.shift();
+            }
+            else {
+                x = x.toString();
+                $scope.labelStore.push(x);
+            };
+        };
+        console.log($scope.labelStore);
+        return $scope.labelStore;
+    };
+
+
     $scope.series = ['Cumulative Interest', 'Cumulative Principal'] ;
 
-    $scope.labels = $scope.range(0,360);
+    $scope.labels = $scope.chartLabel();
 
     $scope.data = [ [], [] ] ;
 
