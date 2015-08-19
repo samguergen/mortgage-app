@@ -8,9 +8,10 @@ mortgageCtrl = function($scope){
     $scope.infos = [];
     $scope.labelStore = [];
     $scope.years = [];
+    $scope.num_of_payments = 360;
     
     $scope.yearCalc = function(){
-        num_years = 360 /12;
+        num_years = ($scope.num_of_payments) /12;
         startdate = new Date();
         startyear = startdate.getFullYear();
         endyear = startyear + 30;
@@ -23,7 +24,7 @@ mortgageCtrl = function($scope){
     $scope.calculateNumPayments = function(){
 
         if ($scope.formData.mortgage_type === true){
-            $scope.formData.number_of_payments = 360;
+            $scope.formData.number_of_payments = $scope.num_of_payments;
         };    
         return $scope.formData.number_of_payments
     };
@@ -119,8 +120,6 @@ mortgageCtrl = function($scope){
     $scope.colours = [{
         fillColor: 'rgb(140,174,149)',
         strokeColor: 'rgba(47, 132, 71, 0.8)',
-        // highlightFill: 'rgb(140,174,149)',
-        // highlightStroke: 'rgba(47, 132, 71, 0.8)'
     }];    
 
 
