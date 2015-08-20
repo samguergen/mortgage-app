@@ -90,11 +90,14 @@
 	font-size: 15px;
 	margin-left: 30%;
 	color: rgb(90, 180, 165);
+	background-color: #cbcbcb;
+    border: 1px solid black;
+    padding: 14px;
 }
 
 #prog-table{
 	width: 80%;
-	margin: 3% 5% 5% 5%;
+	margin: 6% 5% 5% 5%;
 }
 
 #prog-table th{
