@@ -102,19 +102,26 @@
 	border: 1px solid black;
 }
 
-canvas{
-    width: 100% !important;
-    max-width: 700px;
-    height: auto !important;
-    position: absolute;
-    left: 40%;
-}
 
 #graph-title{
 	font-size: 15px;
 	font-weight: bold;
 	padding-bottom: 2%;
 	color: rgb(90, 180, 165);
+	background-color: grey;
+    width: 50%;
+    margin-left: 40%;
+    padding: 12px;
+    background-color: #cbcbcb;
+    border: 1px solid black;
+}
+
+canvas{
+    width: 100% !important;
+    max-width: 700px;
+    height: auto !important;
+    position: absolute;
+    left: 40%;
 }
 
 #y-axis{
