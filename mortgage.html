@@ -95,7 +95,12 @@
             <div id="x-axis">Years</div>
 
             <div id="progression-table">
-                <div id="prog-table-title"> Your Monthly Payment Over 30 Years</div>
+                <div id="prog-table-title" ng-mouseover="HoverProgisVisible=true" ng-mouseleave="HoverProgisVisible=false"> Your Monthly Payment Over 30 Years</div>
+                <div id="hover-prog" ng-show="HoverProgisVisible">
+                    This table displays the details of your monthly payment for your mortgage over 30 years. 
+                    <br>Your monthly payment remains the same throughout the 30-year period, but the interest and principal amounts that constitute your monthly payment change over time. 
+                    <br>Refer to the graph for better clarity.
+                </div>
                 <table id="prog-table" class="pure-table pure-table-striped" >
                     <thead>
                         <tr>
