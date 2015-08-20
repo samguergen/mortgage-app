@@ -83,11 +83,14 @@ canvas{
 	transform: rotate(270deg);
 	float: left;
 	margin-top: 150px;
-	position: relative;
+	position: absolute;
+	margin-left: 30%;
 }
 
 #x-axis{
-	margin-top: 27%;
+	margin-top: 310px;
+	position: absolute;
+	margin-left: 60%;
 }
 
 /*#line{
