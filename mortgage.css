@@ -49,7 +49,6 @@
 .pure-table-horizontal{
 	margin-left: 2%;
 	margin-right: 2%;
-	margin-top: -15px;
 }
 
 .pure-table-horizontal input[type="number"]{
@@ -111,7 +110,7 @@
 	background-color: grey;
     width: 50%;
     margin-left: 40%;
-    padding: 12px;
+    padding: 14px;
     background-color: #cbcbcb;
     border: 1px solid black;
 }
