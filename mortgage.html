@@ -1,109 +1,138 @@
 <html ng-app="mortgageApp" ng-controller="MortgageCtrl">
-<head><title>Mortgage Calculator</title>
-<link rel="stylesheet" type="text/css" href="mortgage.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<head>
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" type="text/css" href="mortgage.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-<script src="http://code.highcharts.com/stock/highstock.src.js"></script>
-<script src="bower_components/highcharts-ng/src/highcharts-ng.js"></script>
 
-<script src="mortgageCtrl.js.coffee"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+
+    <script src="bower_components/Chart.js/Chart.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+
+    <script src="mortgageCtrl.js.coffee"></script>
 
 </head>
 
 
 <body>
-<div class="wrapper" >
-<div class="heading">
-<h1> Mortgage Calculator </h1>
-<h2> Calculate your Mortgage now! </h2>
-</div>
+    <div class="wrapper" >
+        <div class="heading">
+            <h2> Calculate your Mortgage Payment </h2>
+            <div id="details">
+                1. Enter your mortgage information
+               <br> 2. The bottom table will display your monthly payment over 30 years.
+               <br> 3. The graph will display the ratio of monthly interest to principal over time.
+               <br> 4. Scroll over each title for more details.
+            </div>
+            <div id="logo"><img src="images/pv-logo.png"/></div>
+        </div>
 
-<div class="page-body">
-<form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
-<table class="pure-table pure-table-horizontal" >
-			<tr>
-				<td colspan="2"> Enter your mortgage information </td>
-			</tr>
-            <tr> 
-                <th>Type of Mortgage</th>
-                <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
-            </tr>
-            <tr>
-                <th>Number of Payments</th>
-                <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
-            </tr>
-            <tr>
-                <th>Total Price of House</th>
-                <td> <input type="number" ng-model="formData.total_price" /> </td>
-            </tr>
+        <div class="page-body">
+            <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
+                <div id="hover-form" ng-show="HoverFormisVisible"> Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
+                    <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. </div>
+            <table class="pure-table pure-table-horizontal" >
+            			<tr>
+            				<td colspan="2" ng-mouseover="HoverFormisVisible=true" ng-mouseleave="HoverFormisVisible=false"> Enter your mortgage information </td>
+            			</tr>
+                        <tr> 
+                            <th>Type of Mortgage</th>
+                            <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
+                        </tr>
+                        <tr>
+                            <th>Number of Payments</th>
+                            <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
+                        </tr>
+                        <tr>
+                            <th>Total Price of House</th>
+                            <td> <input type="number" ng-model="formData.total_price" /> </td>
+                        </tr>
 
-            <tr>
-                <th>Down Payment</th>
-                <td> <input type="number" ng-model="formData.downpayment" /> 
-                     <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
-                     <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
-                </td>
-            </tr>
-            <tr>
-                <th>Annual Interest Rate</th>
-                <td> <input type="number" ng-model="formData.annual_interest_rate" /> </td>
-            </tr>
-            <tr>
-                <th>Loan Amount</th>
+                        <tr>
+                            <th>Down Payment</th>
+                            <td> <input type="number" ng-model="formData.downpayment" /> 
+                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
+                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Annual Interest Rate</th>
+                            <td> <input type="number" ng-model="formData.annual_interest_rate" /> </td>
+                        </tr>
+                        <tr>
+                            <th>Loan Amount</th>
 
-                <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
-            </tr>
-            <tr>
-            	<td colspan="2">
-                    <input type="button" ng-click="reset()" value="Reset"/>
-					<!-- <input type="submit" value="Submit"/> -->
-                    <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/>
-				</td>
-            </tr>          
+                            <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
+                        </tr>
+                        <tr>
+                        	<td colspan="2">
+                                <input type="button" ng-click="reset()" value="Reset"/>
+            					<!-- <input type="submit" value="Submit"/> -->
+                                <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/>
+            				</td>
+                        </tr>          
 
-</table>
+            </table>
 
-</form>
+            </form>
+
+            <div id="graph-title" ng-mouseover="HoverGraphisVisible=true" ng-mouseleave="HoverGraphisVisible=false">Cumulative Interest and Principal Payments Over 30 Years.</div>
+            <div id="hover-graph" ng-show="HoverGraphisVisible"> 
+                This graph displays the ratio of interest to principal for each monthly payment, over the course of 30 years. 
+                <br> The interest is the extra cost you owe to your bank for taking a loan, and the principal is the money that goes directly into paying your house.
+             </div>
+            <div id="y-axis">Amount (in $)</div>
+
+            <canvas id="line" class="chart chart-line" data="data"
+              labels="labels" legend="true" series="series" colours="colours"
+              click="onClick"> 
+            </canvas> 
+
+            <div id="x-axis">Years</div>
+
+            <div id="progression-table">
+                <div id="prog-table-title" ng-mouseover="HoverProgisVisible=true" ng-mouseleave="HoverProgisVisible=false"> Your Monthly Payment Over 30 Years</div>
+                <div id="hover-prog" ng-show="HoverProgisVisible">
+                    This table displays the details of your monthly payment for your mortgage over 30 years. 
+                    <br>Your monthly payment remains the same throughout the 30-year period, but the interest and principal amounts that constitute your monthly payment change over time. 
+                    <br>Refer to the graph for better clarity.
+                </div>
+                <table id="prog-table" class="pure-table pure-table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Payment Number</th>
+                            <th>Monthly Payment</th>
+                            <th>Monthly Interest</th>
+                            <th>Monthly Principal</th>
+                            <th>Remaining Balance</th>    
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="info in infos">
+                            <td>{{ info.pay_index }}</td>
+                            <td>{{ total_monthly_payment | currency }}</td>
+                            <td>{{ info.month_interest | currency}}</td>
+                            <td>{{ info.month_principal | currency}}</td>
+                            <td>{{ info.leftover_balance | currency }}</td>
+                        </tr>     
+                    </tbody>
+
+                </table>
+                </div>
 
 
-<highchart id="area-chart" config="chartConfig"></highchart>
+            </div>
 
 
-<table id="prog-table" class="pure-table pure-table-striped" >
-<thead>
-    <tr>
-        <th>Payment Number</th>
-        <th>Monthly Payment</th>
-        <th>Monthly Interest</th>
-        <th>Monthly Principal</th>
-        <th>Remaining Balance</th>    
-    </tr>
-</thead>
+        <div class="footer">
+        </div>
 
-<tbody>
-    <tr ng-repeat="info in infos">
-        <td>{{ info.pay_index }}</td>
-        <td>{{ total_monthly_payment | currency }}</td>
-        <td>{{ info.month_interest | currency}}</td>
-        <td>{{ info.month_principal | currency}}</td>
-        <td>{{ info.leftover_balance | currency }}</td>
-    </tr>     
-</tbody>
-
-</table>
-
-
-
-</div>
-
-
-<div class="footer">
-</div>
-
-</div>
+    </div>
 </body>
 
 

@@ -1,4 +1,4 @@
-var app = angular.module("mortgageApp", ["highcharts-ng"]);
+var app = angular.module("mortgageApp", ["chart.js"]);
 
 
 mortgageCtrl = function($scope){
@@ -6,11 +6,25 @@ mortgageCtrl = function($scope){
     console.log('in da controller');
     $scope.formData = {};
     $scope.infos = [];
+    $scope.labelStore = [];
+    $scope.years = [];
+    $scope.num_of_payments = 360;
+    
+    $scope.yearCalc = function(){
+        num_years = ($scope.num_of_payments) /12;
+        startdate = new Date();
+        startyear = startdate.getFullYear();
+        endyear = startyear + 30;
+        for (var i=startyear; i<endyear+1; i++){
+            $scope.years.push(i);
+        };
+        return $scope.years;
+    };
 
     $scope.calculateNumPayments = function(){
 
         if ($scope.formData.mortgage_type === true){
-            $scope.formData.number_of_payments = 360;
+            $scope.formData.number_of_payments = $scope.num_of_payments;
         };    
         return $scope.formData.number_of_payments
     };
@@ -67,65 +81,78 @@ mortgageCtrl = function($scope){
                 $scope.addPointInterest($scope.infos[x].cumul_interest );
                 $scope.addPointPrincipal($scope.infos[x].cumul_principal );
             }   
-
-           
         };
+    };
 
+    $scope.range =  function(start, count) {
+        return Array.apply(0, Array(count))
+                    .map(function (element, index) { 
+                             return index + start;  
+                         });
     };
 
     $scope.reset = function(){
         $scope.formData = "";
     };
 
-
-    $scope.chartConfig = {
-        options: {
-            chart: {
-                type: 'area'
+    $scope.chartLabel = function(){
+        years = $scope.yearCalc();
+        num_payments = $scope.num_of_payments;
+        for (var x=0; x<num_payments; x++){
+            if (x==0 || x % 12 == 0) {
+                $scope.labelStore.push(years[0]);
+                years.shift();
             }
-        },
-        series: [{
-            name: "Cumulative Interest",
-            data: []
-        },
-        {
-            name: "Cumulative Principal",
-            data: []
-        }
-
-        ],
-
-        yAxis : {
-            title: {
-                text: "Amount (in $)"
-            }
-        },
-
-        xAxis : {
-            title: {
-                text: "Payment Number"
-            }
-        },        
-
-        title: {
-            text: 'Cumulative Principal and Interest Payments'
-        },
-
-        loading: false
+            else {
+                $scope.labelStore.push('');
+            };
+        };
+        console.log($scope.labelStore);
+        return $scope.labelStore;
     };
 
+
+    $scope.series = ['Cumulative Interest', 'Cumulative Principal'] ;
+
+    $scope.labels = $scope.chartLabel();
+
+    $scope.data = [ [], [] ] ;
+
+    $scope.colours = [{
+        fillColor: 'rgb(136, 184, 176)',
+        strokeColor: 'rgb(118, 116, 116)',
+    }];    
+
+
+    // $scope.onClick = function (points, evt) {
+    // console.log(points, evt);
+    // };
+
+
     $scope.addPointInterest = function (info_array) {
-        var seriesArray = $scope.chartConfig.series
-        seriesArray[0].data = seriesArray[0].data.concat(info_array);
+        var seriesArray = $scope.data;
+        seriesArray[0] = seriesArray[0].concat(info_array);
     };
 
 
     $scope.addPointPrincipal = function (info_array) {
-        var seriesArray = $scope.chartConfig.series   
-        seriesArray[1].data = seriesArray[1].data.concat(info_array);
+        var seriesArray = $scope.data; 
+        seriesArray[1] = seriesArray[1].concat(info_array);
     };
 
+    $scope.HoverOver = function(){
+        console.log('Hovering!');
+    };
+
+    $scope.HoverOver2 = function (){
+        console.log('No longer! hehehehehe');
+    };
+
+
+console.log($scope.yearCalc());
+
   }
+
 
 
  app.controller("MortgageCtrl", ['$scope', mortgageCtrl] );
