@@ -91,18 +91,19 @@
     background-color: #cbcbcb;
     border: 1px solid black;
     margin-top: -40px;
+    margin-bottom: 20px;
 }
 
 canvas{
     width: 100% !important;
-    max-width: 700px;
+    max-width: 637px;
     height: auto !important;
     position: absolute;
     left: 40%;
 }
 
 #x-axis{
-	margin-top: 310px;
+	margin-top: 280px;
 	position: absolute;
 	margin-left: 60%;
 	color: rgb(118, 116, 116);
