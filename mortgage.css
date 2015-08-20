@@ -125,7 +125,7 @@ canvas{
 #prog-table-title {
 	position: absolute;
 	font-weight: bold;
-	margin-top: -5px;
+	margin-top: -70px;
 	text-align: center;
 	font-size: 15px;
 	margin-left: 33%;
@@ -137,7 +137,7 @@ canvas{
 
 #prog-table{
 	width: 90%;
-	margin: 5% 2% 5% 2%;
+	margin: 0% 2% 5% 2%;
 }
 
 #prog-table th{
