@@ -140,6 +140,13 @@ mortgageCtrl = function($scope){
         seriesArray[1] = seriesArray[1].concat(info_array);
     };
 
+    $scope.HoverOver = function(){
+        console.log('Hovering!');
+    };
+
+    $scope.HoverOver2 = function (){
+        console.log('No longer! hehehehehe');
+    };
 
 
 console.log($scope.yearCalc());

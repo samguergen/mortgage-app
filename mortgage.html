@@ -33,9 +33,11 @@
 
         <div class="page-body">
             <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
+                <div class="hover" ng-show="HoverOverisVisible"> Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
+                    <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. </div>
             <table class="pure-table pure-table-horizontal" >
             			<tr>
-            				<td colspan="2"> Enter your mortgage information </td>
+            				<td colspan="2" ng-mouseover="HoverOverisVisible=true" ng-mouseleave="HoverOverisVisible=false"> Enter your mortgage information </td>
             			</tr>
                         <tr> 
                             <th>Type of Mortgage</th>

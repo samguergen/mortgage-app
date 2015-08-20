@@ -156,3 +156,31 @@ canvas{
 .footer {
 	clear: both;
 }
+
+
+.hover 
+{
+position: absolute;
+width: 250px;
+height: 120px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+border-radius: 12px;
+margin-left: 330px;
+}
+
+.hover:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 11px 21px 11px 0;
+border-color: transparent #FFFFFF;
+display: block;
+width: 0;
+z-index: 1;
+left: -21px;
+top: 28px;
+}
