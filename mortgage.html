@@ -33,11 +33,11 @@
 
         <div class="page-body">
             <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
-                <div class="hover" ng-show="HoverOverisVisible"> Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
+                <div id="hover-form" ng-show="HoverFormisVisible"> Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
                     <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. </div>
             <table class="pure-table pure-table-horizontal" >
             			<tr>
-            				<td colspan="2" ng-mouseover="HoverOverisVisible=true" ng-mouseleave="HoverOverisVisible=false"> Enter your mortgage information </td>
+            				<td colspan="2" ng-mouseover="HoverFormisVisible=true" ng-mouseleave="HoverFormisVisible=false"> Enter your mortgage information </td>
             			</tr>
                         <tr> 
                             <th>Type of Mortgage</th>
@@ -80,7 +80,11 @@
 
             </form>
 
-            <div id="graph-title">Cumulative Interest and Principal Payments Over 30 Years.</div>
+            <div id="graph-title" ng-mouseover="HoverOverisVisible=true" ng-mouseleave="HoverOverisVisible=false">Cumulative Interest and Principal Payments Over 30 Years.</div>
+            <div id="hover-graph" ng-show="HoverOverisVisible"> 
+                This graph displays the ratio of interest to principal for each monthly payment, over the course of 30 years. 
+                <br> The interest is the extra cost you owe to your bank for taking a loan, and the principal is the money that goes directly into paying your house.
+             </div>
             <div id="y-axis">Amount (in $)</div>
 
             <canvas id="line" class="chart chart-line" data="data"
