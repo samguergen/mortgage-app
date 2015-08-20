@@ -29,6 +29,7 @@
 .pure-table-horizontal{
 	margin-left: 2%;
 	margin-right: 2%;
+	margin-top: -15px;
 }
 
 .pure-table-horizontal input[type="number"]{
@@ -56,10 +57,22 @@
 	margin-left: 20px;
 }
 
+#progression-table{
+	margin-top: 480px;
+}
+
+#prog-table-title {
+	position: absolute;
+	font-weight: bold;
+	margin-top: -5px;
+	text-align: center;
+	font-size: 14px;
+	margin-left: 30%;
+}
+
 #prog-table{
 	width: 80%;
-	margin: 5%;
-	text-align: center;
+	margin: 3% 5% 5% 5%;
 }
 
 #prog-table th{
@@ -77,6 +90,7 @@ canvas{
 #graph-title{
 	font-size: 14px;
 	font-weight: bold;
+	padding-bottom: 2%;
 }
 
 #y-axis{
@@ -92,13 +106,6 @@ canvas{
 	position: absolute;
 	margin-left: 60%;
 }
-
-/*#line{
-	float: left;
-    height: 200px;
-    width: 50%;
-    margin: 20px;
-}*/
 
 .footer {
 	clear: both;
