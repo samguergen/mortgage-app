@@ -23,7 +23,7 @@
 }
 
 #details {
-	margin-left: 5%;
+	margin-left: 8%;
 	margin-top: 1%;
 	text-align: left;
 	/*position: absolute;*/
@@ -31,7 +31,6 @@
 	float: left;
 	line-height: 14px;
 	color: white;
-	/*font-weight: bold;*/
 }
 
 .page-body {
@@ -43,7 +42,7 @@
 	width: 30%;
 	border: 1px solid black;
 	float: left;
-	height: 50px;
+	height: 60px;
 	font-size: 13px;
 }
 
@@ -61,7 +60,7 @@
 .pure-table-horizontal tr:first-child td:first-child {
 	font-weight: bold;
 	font-size: 15px;
-	padding: 15px;
+	padding: 15px 15px 15px 20px;
 	background-color: #cbcbcb;
 	border: 1px solid black;
 	color: rgb(90, 180, 165);
@@ -73,6 +72,7 @@
 
 .pure-table-horizontal tr:last-child td:last-child {
 	text-align: center;
+	padding: 15px;
 }
 
 .pure-table-horizontal tr:last-child td:last-child input{

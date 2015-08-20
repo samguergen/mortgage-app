@@ -119,8 +119,8 @@ mortgageCtrl = function($scope){
     $scope.data = [ [], [] ] ;
 
     $scope.colours = [{
-        fillColor: 'rgb(140,174,149)',
-        strokeColor: 'rgba(47, 132, 71, 0.8)',
+        fillColor: 'rgb(136, 184, 176)',
+        strokeColor: 'rgb(118, 116, 116)',
     }];    
 
 
