@@ -1,16 +1,37 @@
 .wrapper {
-	width: 90%;
+	width: 93%;
 	text-align: center;
 	padding: 30px;
 	margin: auto;
 	background-color: #F7F7F8;
+	border: 2px solid grey;
 }
 
 
 .heading {
-	padding: 20px;
+	padding: 35px;
 	border: 2px solid grey;
+	height: 60px;
+	background-color: rgb(118, 116, 116);
 
+}
+
+.heading h2{
+	float: left;
+	margin-top: -2%;
+	color: rgb(136, 184, 176);
+}
+
+#details {
+	margin-left: 5%;
+	margin-top: 1%;
+	text-align: left;
+	/*position: absolute;*/
+	font-size: 10px;
+	float: left;
+	line-height: 14px;
+	color: white;
+	/*font-weight: bold;*/
 }
 
 .page-body {
@@ -43,6 +64,7 @@
 	padding: 15px;
 	background-color: #cbcbcb;
 	border: 1px solid black;
+	color: rgb(90, 180, 165);
 }
 
 .pure-table-horizontal th {
@@ -68,6 +90,7 @@
 	text-align: center;
 	font-size: 15px;
 	margin-left: 30%;
+	color: rgb(90, 180, 165);
 }
 
 #prog-table{
@@ -91,6 +114,7 @@ canvas{
 	font-size: 15px;
 	font-weight: bold;
 	padding-bottom: 2%;
+	color: rgb(90, 180, 165);
 }
 
 #y-axis{
