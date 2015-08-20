@@ -26,9 +26,13 @@
 #logo {
 	float: left;
 	width: 15%;
-	margin-top: -30px;
+	margin-top: -40px;
 	margin-right: 300px;
 }
+
+/*img {
+	margin-top: -10px;
+}*/
 
 #details {
 	float: left;
@@ -168,7 +172,7 @@ canvas{
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-	margin-left: 330px;
+	margin-left: 30%;
 	margin-top: -10px;
 	border: 1px solid rgb(118, 116, 116);
 }
@@ -209,7 +213,7 @@ canvas{
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-	margin-left: 1050px;
+	margin-left: 80%;
 	margin-top: -80px;
 	border: 1px solid rgb(118, 116, 116);
 }
@@ -251,8 +255,8 @@ canvas{
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-	margin-left: 750px;
-	margin-top: -100px;
+	margin-left: 55%;
+	margin-top: -90px;
 	border: 1px solid rgb(118, 116, 116);
 }
 
