@@ -78,33 +78,6 @@
 	margin-left: 20px;
 }
 
-#progression-table{
-	margin-top: 480px;
-}
-
-#prog-table-title {
-	position: absolute;
-	font-weight: bold;
-	margin-top: -5px;
-	text-align: center;
-	font-size: 15px;
-	margin-left: 30%;
-	color: rgb(90, 180, 165);
-	background-color: #cbcbcb;
-    border: 1px solid black;
-    padding: 14px;
-}
-
-#prog-table{
-	width: 80%;
-	margin: 6% 5% 5% 5%;
-}
-
-#prog-table th{
-	border: 1px solid black;
-}
-
-
 #graph-title{
 	font-size: 15px;
 	font-weight: bold;
@@ -126,22 +99,48 @@ canvas{
     left: 40%;
 }
 
-#y-axis{
-	transform: rotate(270deg);
-	float: left;
-	margin-top: 150px;
-	position: absolute;
-	margin-left: 30%;
-	color: rgb(118, 116, 116);
-	font-size: 12px
-}
-
 #x-axis{
 	margin-top: 310px;
 	position: absolute;
 	margin-left: 60%;
 	color: rgb(118, 116, 116);
 	font-size: 12px
+}
+
+#y-axis{
+	transform: rotate(270deg);
+	float: left;
+	margin-top: 150px;
+	position: absolute;
+	margin-left: 32%;
+	color: rgb(118, 116, 116);
+	font-size: 12px
+}
+
+#progression-table{
+	margin-top: 480px;
+}
+
+#prog-table-title {
+	position: absolute;
+	font-weight: bold;
+	margin-top: -5px;
+	text-align: center;
+	font-size: 15px;
+	margin-left: 30%;
+	color: rgb(90, 180, 165);
+	background-color: #cbcbcb;
+    border: 1px solid black;
+    padding: 14px;
+}
+
+#prog-table{
+	width: 80%;
+	margin: 5% 5% 5% 5%;
+}
+
+#prog-table th{
+	border: 1px solid black;
 }
 
 .footer {
