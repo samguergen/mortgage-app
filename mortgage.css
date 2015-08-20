@@ -67,7 +67,6 @@
 
 .pure-table-horizontal th {
 	background-color: #f2f2f2;
-	border: 1px solid black;
 }
 
 .pure-table-horizontal tr:last-child td:last-child {
@@ -133,12 +132,16 @@ canvas{
 	margin-top: 150px;
 	position: absolute;
 	margin-left: 30%;
+	color: rgb(118, 116, 116);
+	font-size: 12px
 }
 
 #x-axis{
 	margin-top: 310px;
 	position: absolute;
 	margin-left: 60%;
+	color: rgb(118, 116, 116);
+	font-size: 12px
 }
 
 .footer {
