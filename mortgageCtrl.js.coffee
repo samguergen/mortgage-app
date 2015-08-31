@@ -5,7 +5,6 @@ mortgageCtrl = function($scope){
 
     console.log('in da controller');
     $scope.formData = {};
-    $scope.infos = [];
     $scope.labelStore = [];
     $scope.years = [];
     $scope.num_of_payments = 360;
@@ -56,36 +55,40 @@ mortgageCtrl = function($scope){
 
     $scope.calculateMortgageProgression = function(){
 
-        month_payment = $scope.calculateMortgage();
+        $scope.infos = [];
+
+        $scope.month_payment = $scope.calculateMortgage();
         num_payments = $scope.calculateNumPayments();
-        remaining_balance = $scope.formData.loan_amount;
-        interest_cumul_count = 0;
+        $scope.remaining_balance = $scope.formData.loan_amount;
+        $scope.interest_cumul_count = 0;
         principal_cumul_count = 0;        
 
         for (var x=0; x < num_payments ; x++) {
 
-            monthly_interest = remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
-            monthly_principal = month_payment - monthly_interest; 
+            $scope.monthly_interest = $scope.remaining_balance * ($scope.formData.annual_interest_rate / 12)/100;
+            $scope.monthly_principal = $scope.month_payment - $scope.monthly_interest; 
 
-            interest_cumul_count += monthly_interest;
-            principal_cumul_count += monthly_principal;           
+            $scope.interest_cumul_count += $scope.monthly_interest;
+            principal_cumul_count += $scope.monthly_principal;           
 
             $scope.infos.push({
                 'pay_index': x+1,
-                'leftover_balance': remaining_balance - monthly_principal,
-                'month_interest': monthly_interest,
-                'month_principal': monthly_principal,
-                'cumul_interest': interest_cumul_count,
+                'leftover_balance': $scope.remaining_balance - $scope.monthly_principal,
+                'month_interest': $scope.monthly_interest,
+                'month_principal': $scope.monthly_principal,
+                'cumul_interest': $scope.interest_cumul_count,
                 'cumul_principal': principal_cumul_count
             });
 
-            remaining_balance -= monthly_principal;
+            $scope.remaining_balance -= $scope.monthly_principal;
 
             if (x > 0){
                 $scope.addPointInterest($scope.infos[x].cumul_interest );
                 $scope.addPointPrincipal($scope.infos[x].cumul_principal );
-            }   
+            }  
+
         };
+
     };
 
     $scope.range =  function(start, count) {

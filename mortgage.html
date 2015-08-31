@@ -9,6 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 
+    <!-- <script src="bower_components/angular/angular.min.js"></script> -->
     <link rel="stylesheet" href="angular-slider/angular-slider.css">
     <script src="angular-slider/angular-slider.js"></script>
 
@@ -36,9 +37,12 @@
 
         <div class="page-body">
             <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
-                <div id="hover-form" ng-show="HoverFormisVisible"> Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
-                    <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. </div>
-            <table class="pure-table pure-table-horizontal" >
+                <div id="hover-form" ng-show="HoverFormisVisible"> 
+                    Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
+                    <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. 
+                </div>
+
+                <table class="pure-table pure-table-horizontal" >
             			<tr>
             				<td colspan="2" ng-mouseover="HoverFormisVisible=true" ng-mouseleave="HoverFormisVisible=false"> Enter your mortgage information </td>
             			</tr>
@@ -67,6 +71,7 @@
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
                             </td>
                         </tr>
+                        
                         <tr>
                             <th>Annual Interest Rate</th>
                             <td> <input type="number" ng-model="formData.annual_interest_rate" ng-bind="formData.annual_interest_rate" placeholder={{formData.annual_interest_rate}} % />
@@ -125,10 +130,10 @@
                     <tbody>
                         <tr ng-repeat="info in infos">
                             <td>{{ info.pay_index }}</td>
-                            <td>{{ total_monthly_payment | currency }}</td>
-                            <td>{{ info.month_interest | currency}}</td>
-                            <td>{{ info.month_principal | currency}}</td>
-                            <td>{{ info.leftover_balance | currency }}</td>
+                            <td>{{ total_monthly_payment | currency }} </td>
+                            <td>{{ info.month_interest | currency }} </td>
+                            <td>{{ info.month_principal | currency }} </td>
+                            <td>{{ info.leftover_balance | currency }} </td>
                         </tr>     
                     </tbody>
 
