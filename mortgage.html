@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 
     <!-- <script src="bower_components/angular/angular.min.js"></script> -->
-    <link rel="stylesheet" href="sliders/praj-angular-slider/angular-slider.css">
-    <script src="sliders/praj-angular-slider/angular-slider.js"></script>
+    <link rel="stylesheet" href="sliders/popsugar-angular-slider/slider.css">
+    <script src="sliders/popsugar-angular-slider/slider.js"></script>
 
     <script src="bower_components/Chart.js/Chart.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
@@ -60,7 +60,7 @@
 
                             <!-- <br> {{ formData.total_price }} -->
                             
-                            <br><slider floor="0" ceiling="1000000" step="1" precision="0" ng-model="formData.total_price"></slider></td>
+                            <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider></td>
                         </tr>
 
                         <tr>
@@ -69,7 +69,7 @@
                             
                             <!-- <br> {{ formData.downpayment | currency }} -->
 
-                            <br><slider floor="0" ceiling="1000000" step="1" precision="0" ng-model="formData.downpayment"></slider>
+                            <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
