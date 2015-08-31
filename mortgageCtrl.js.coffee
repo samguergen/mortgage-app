@@ -87,6 +87,9 @@ mortgageCtrl = function($scope){
 
         };
 
+        $scope.data[0].concat($scope.seriesInterest);
+        $scope.data[1].concat($scope.seriesPrincipal);
+
     };
 
     $scope.range =  function(start, count) {
@@ -136,14 +139,14 @@ mortgageCtrl = function($scope){
 
 
     $scope.addPointInterest = function (info_array) {
-        var seriesArray = $scope.data;
-        seriesArray[0] = seriesArray[0].concat(info_array);
+        $scope.seriesInterest = [];
+        $scope.seriesInterest = $scope.seriesInterest.concat(info_array);
     };
 
 
     $scope.addPointPrincipal = function (info_array) {
-        var seriesArray = $scope.data; 
-        seriesArray[1] = seriesArray[1].concat(info_array);
+        $scope.seriesPrincipal = []; 
+        $scope.seriesPrincipal = $scope.seriesPrincipal.concat(info_array);
     };
 
 
