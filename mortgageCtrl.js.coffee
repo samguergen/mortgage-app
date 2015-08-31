@@ -11,10 +11,6 @@ mortgageCtrl = function($scope){
     $scope.formData.total_price = 0;
     $scope.formData.downpayment = 0;
     $scope.formData.annual_interest_rate = 0;
-
-    console.log($scope.formData.total_price);
-    console.log($scope.formData.downpayment);
-    console.log($scope.formData.annual_interest_rate);
     
     $scope.yearCalc = function(){
         num_years = ($scope.num_of_payments) /12;
@@ -148,14 +144,6 @@ mortgageCtrl = function($scope){
     $scope.addPointPrincipal = function (info_array) {
         var seriesArray = $scope.data; 
         seriesArray[1] = seriesArray[1].concat(info_array);
-    };
-
-    $scope.HoverOver = function(){
-        console.log('Hovering!');
-    };
-
-    $scope.HoverOver2 = function (){
-        console.log('No longer! hehehehehe');
     };
 
 
