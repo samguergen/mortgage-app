@@ -54,14 +54,14 @@
                             <th>Total Price of House</th>
                             <td> <input type="number" ng-model="formData.total_price" placeholder={{formData.total_price}} /> 
                             
-                            <br><slider floor="1000" ceiling="10000000" step="500" precision="0" ng-model="formData.total_price"></slider></td>
+                            <br><slider floor="1000" ceiling="10000000" step="1000" precision="0" ng-model="formData.total_price"></slider></td>
                         </tr>
 
                         <tr>
                             <th>Down Payment</th>
                             <td> <input type="number" ng-model="formData.downpayment" placeholder={{formData.downpayment}} /> 
                             
-                            <br><slider floor="0" ceiling="1000000" step="1" precision="0" ng-model="formData.downpayment"></slider>
+                            <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
