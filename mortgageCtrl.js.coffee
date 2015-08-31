@@ -5,7 +5,6 @@ mortgageCtrl = function($scope){
 
     console.log('in da controller');
     $scope.formData = {};
-    $scope.labelStore = [];
     $scope.years = [];
     $scope.num_of_payments = 360;
     $scope.formData.total_price = 0;
@@ -68,7 +67,7 @@ mortgageCtrl = function($scope){
             $scope.monthly_principal = $scope.month_payment - $scope.monthly_interest; 
 
             $scope.interest_cumul_count += $scope.monthly_interest;
-            principal_cumul_count += $scope.monthly_principal;           
+            $scope.principal_cumul_count += $scope.monthly_principal;           
 
             $scope.infos.push({
                 'pay_index': x+1,
@@ -76,7 +75,7 @@ mortgageCtrl = function($scope){
                 'month_interest': $scope.monthly_interest,
                 'month_principal': $scope.monthly_principal,
                 'cumul_interest': $scope.interest_cumul_count,
-                'cumul_principal': principal_cumul_count
+                'cumul_principal': $scope.principal_cumul_count
             });
 
             $scope.remaining_balance -= $scope.monthly_principal;
@@ -102,6 +101,7 @@ mortgageCtrl = function($scope){
     };
 
     $scope.chartLabel = function(){
+        $scope.labelStore = [];
         years = $scope.yearCalc();
         num_payments = $scope.num_of_payments;
         for (var x=0; x<num_payments; x++){
