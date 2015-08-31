@@ -147,6 +147,12 @@ mortgageCtrl = function($scope){
     };
 
 
+    $scope.$watch('[formData.total_price,formData.downpayment, formData.annual_interest_rate]', function () {
+        $scope.calculateMortgageProgression();
+
+    }, true);
+
+
   }
 
 
