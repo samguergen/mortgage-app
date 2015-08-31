@@ -59,7 +59,10 @@
 
                         <tr>
                             <th>Down Payment</th>
-                            <td> <input type="number" ng-model="formData.downpayment" /> 
+                            <!-- <td> <input type="number" ng-model="formData.downpayment" />  -->
+                            <td>{{formData.downpayment}} 
+                            <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.downpayment"></slider>
+
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
                                  <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
                             </td>
