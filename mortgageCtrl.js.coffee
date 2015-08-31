@@ -1,4 +1,4 @@
-var app = angular.module("mortgageApp", ["chart.js"]);
+var app = angular.module("mortgageApp", ['uiSlider','chart.js']);
 
 
 mortgageCtrl = function($scope){
