@@ -9,6 +9,10 @@ mortgageCtrl = function($scope){
     $scope.labelStore = [];
     $scope.years = [];
     $scope.num_of_payments = 360;
+
+    console.log($scope.formData.total_price);
+    console.log($scope.formData.downpayment);
+    console.log($scope.formData.annual_interest_rate);
     
     $scope.yearCalc = function(){
         num_years = ($scope.num_of_payments) /12;
@@ -107,7 +111,7 @@ mortgageCtrl = function($scope){
                 $scope.labelStore.push('');
             };
         };
-        console.log($scope.labelStore);
+        
         return $scope.labelStore;
     };
 
@@ -148,8 +152,6 @@ mortgageCtrl = function($scope){
         console.log('No longer! hehehehehe');
     };
 
-
-console.log($scope.yearCalc());
 
   }
 
