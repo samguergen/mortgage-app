@@ -8,6 +8,7 @@ mortgageCtrl = function($scope){
     $scope.labelStore = [];
     $scope.years = [];
     $scope.num_of_payments = 360;
+    $scope.parseInt = parseInt;
 
     console.log($scope.formData.total_price);
     console.log($scope.formData.downpayment);
