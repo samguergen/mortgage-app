@@ -52,14 +52,14 @@
                         </tr>
                         <tr>
                             <th>Total Price of House</th>
-                            <td> <input type="number" ng-model="formData.total_price" placeholder={{formData.total_price}} /> 
+                            <td> <input type="number" ng-model="formData.total_price" ng-bind="formData.total_price" placeholder={{formData.total_price}} /> 
                             
-                            <br><slider floor="1000" ceiling="10000000" step="1000" precision="0" ng-model="formData.total_price"></slider></td>
+                            <br><slider floor="1000" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider></td>
                         </tr>
 
                         <tr>
                             <th>Down Payment</th>
-                            <td> <input type="number" ng-model="formData.downpayment" placeholder={{formData.downpayment}} /> 
+                            <td> <input type="number" ng-model="formData.downpayment" ng-bind="formData.downpayment" placeholder={{formData.downpayment}} /> 
                             
                             <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <th>Annual Interest Rate</th>
-                            <td> <input type="number" ng-model="formData.annual_interest_rate" placeholder={{formData.annual_interest_rate}} % />
+                            <td> <input type="number" ng-model="formData.annual_interest_rate" ng-bind="formData.annual_interest_rate" placeholder={{formData.annual_interest_rate}} % />
                             <!-- <td>{{formData.annual_interest_rate}} % -->
                             <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider></td>
                         </tr>
