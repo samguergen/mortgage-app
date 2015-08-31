@@ -52,7 +52,9 @@
                         </tr>
                         <tr>
                             <th>Total Price of House</th>
-                            <td> <input type="number" ng-model="formData.total_price" /> </td>
+                            <!-- <td> <input type="number" ng-model="formData.total_price" /> </td> -->
+                            <td>{{formData.total_price | currency}}
+                            <br><slider floor="1000" ceiling="10000000" step="500" precision="0" ng-model="formData.total_price"></slider></td>
                         </tr>
 
                         <tr>
