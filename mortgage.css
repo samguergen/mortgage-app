@@ -37,11 +37,13 @@
 	margin-left: 58%;
 	margin-top: 1%;
 	text-align: left;
-	font-size: 10px;
+	font-size: 70%;
 	float: left;
 	line-height: 14px;
 	color: white;
 	position: absolute;
+/*	min-width: 10%;
+	max-width: 70%;*/
 }
 
 .page-body {
@@ -86,7 +88,7 @@
 	background-color: rgb(230, 244, 242);
 }
 
-.pure-table-horizontal tr:nth-child(3) input[type="text"]:hover + .down-type { background-color: yellow; } 
+.pure-table-horizontal tr:nth-child(3):hover > .down-type { background-color: yellow; } 
 
 .down-type {
 	margin: 0px 15px 10px 10px;
@@ -145,7 +147,8 @@ canvas{
 	position: absolute;
 	margin-left: 32%;
 	color: rgb(118, 116, 116);
-	font-size: 12px
+	font-size: 12px;
+	z-index: 1;
 }
 
 #progression-table{
@@ -248,8 +251,7 @@ canvas{
 	top: 28px;
 }
 
-#hover-graph:before 
-{
+#hover-graph:before {
 	content: '';
 	position: absolute;
 	border-style: solid;
@@ -268,7 +270,7 @@ canvas{
 	width: 300px;
 	height: 140px;
 	padding: 7px;
-	background: solid #FFFFFF;
+	background: #FFFFFF;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
