@@ -109,11 +109,16 @@ mortgageCtrl = function($scope){
         };
 
 
-        $scope.data[0].concat($scope.seriesInterest);
-        $scope.data[1].concat($scope.seriesPrincipal);
+        $scope.data[0].push($scope.seriesInterest);
+        $scope.data[1].push($scope.seriesPrincipal);
+
+        console.log('Data obj is ');
+        console.log($scope.data);
 
         console.log('Data obj for cumul int is ');
         console.log($scope.data[0]);
+        console.log('Data obj for cumul principal is ');
+        console.log($scope.data[1]);        
         // console.log('First array in Data obj is ');
         // console.log($scope.data[0]);
         // console.log('Second array in Data obj is ');
@@ -177,6 +182,7 @@ mortgageCtrl = function($scope){
         $scope.seriesInterest = $scope.seriesInterest.concat(info_array);
         console.log('after concat in addpointinterest ');
         console.log($scope.seriesInterest);
+        return $scope.seriesInterest;
     };
 
 
@@ -186,6 +192,7 @@ mortgageCtrl = function($scope){
         $scope.seriesPrincipal = $scope.seriesPrincipal.concat(info_array);
         console.log('after concat in addpointprincipal');
         console.log($scope.seriesPrincipal);
+        return $scope.seriesPrincipal;
     };
 
 
