@@ -30,10 +30,6 @@
 	margin-right: 300px;
 }
 
-/*img {
-	margin-top: -10px;
-}*/
-
 #details {
 	float: left;
 	margin-left: 8%;
@@ -65,7 +61,7 @@
 
 .pure-table-horizontal input[type="text"]{
 	height: 25px;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 80%;
 }
 
@@ -91,6 +87,14 @@
 
 .pure-table-horizontal tr:last-child td:last-child input{
 	margin-left: 20px;
+}
+
+.pure-table-horizontal input[type="radio"]{
+	margin-bottom: 5px;
+}
+
+.down-type {
+	margin: 0px 10px 10px 0px;
 }
 
 #graph-title{
