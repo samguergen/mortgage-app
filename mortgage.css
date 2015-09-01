@@ -90,21 +90,17 @@
 	padding: 15px;
 }
 
-.pure-table-horizontal tr:last-child td:last-child input{
-	margin-left: 20px;
+.down-type {
+	margin: 0px 15px 10px 10px;
 }
 
 .pure-table-horizontal input[type="radio"]{
 	margin-bottom: 5px;
 }
 
-.down-type {
-	margin: 0px 10px 10px 0px;
+.pure-table-horizontal input[type="checkbox"]{
+	margin-left: 10px;
 }
-
-/*.down-type:hover {
-	background: red;
-}*/
 
 #graph-title{
 	font-size: 15px;
