@@ -46,14 +46,7 @@
             			<tr>
             				<td colspan="2" ng-mouseover="HoverFormisVisible=true" ng-mouseleave="HoverFormisVisible=false"> Enter your mortgage information </td>
             			</tr>
-                        <tr> 
-                            <th>Type of Mortgage</th>
-                            <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
-                        </tr>
-                        <tr>
-                            <th>Number of Payments</th>
-                            <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
-                        </tr>
+                        
                         <tr>
                             <th>Total Price of House</th>
                             <td> <b>$</b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
@@ -82,6 +75,17 @@
                             <!-- <br> {{formData.annual_interest_rate}} % -->
                             <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider></td>
                         </tr>
+
+                        <tr> 
+                            <th>Type of Mortgage</th>
+                            <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
+                        </tr>
+                        <tr>
+                            <th>Number of Payments</th>
+                            <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
+                        </tr>
+
+
                         <tr>
                             <th>Loan Amount</th>
 
