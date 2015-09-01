@@ -73,10 +73,11 @@
 .pure-table-horizontal tr:first-child td:first-child {
 	font-weight: bold;
 	font-size: 15px;
-	padding: 15px 15px 15px 20px;
+	padding: 15px 15px 15px 15px;
 	background-color: #cbcbcb;
 	border: 1px solid black;
 	color: rgb(90, 180, 165);
+	text-align: center;
 }
 
 .pure-table-horizontal th {
