@@ -6,45 +6,49 @@
 	background-color: #F7F7F8;
 	border: 2px solid grey;
 	font-family: "Raleway", sans-serif;
+	position: relative;
 }
-
 
 .heading {
 	padding: 35px;
 	border: 2px solid grey;
 	height: 60px;
 	background-color: rgb(118, 116, 116);
-
+	position: relative;
 }
 
 .heading h2{
 	float: left;
 	margin-top: -2%;
 	color: rgb(136, 184, 176);
+	position: absolute;
 }
 
 #logo {
 	float: left;
 	width: 15%;
-	margin-top: -40px;
+	margin-top: 20px;
 	margin-right: 300px;
+	position: absolute;
 }
 
 #details {
 	float: left;
-	margin-left: 8%;
+	margin-left: 58%;
 	margin-top: 1%;
 	text-align: left;
-	font-size: 10px;
+	font-size: 70%;
 	float: left;
 	line-height: 14px;
 	color: white;
+	position: absolute;
+/*	min-width: 10%;
+	max-width: 70%;*/
 }
 
 .page-body {
 	margin-top: 100px;
 }
-
 
 .pure-table {
 	width: 30%;
@@ -59,43 +63,51 @@
 	margin-right: 2%;
 }
 
+.pure-table-horizontal th {
+	background-color: #f2f2f2;
+	width: 10%;
+}
+
+.pure-table-horizontal tr:first-child td:first-child {
+	font-weight: bold;
+	font-size: 15px;
+	padding: 15px 15px 15px 15px;
+	background-color: #cbcbcb;
+	border: 1px solid black;
+	color: rgb(90, 180, 165);
+	text-align: center;
+}
+
 .pure-table-horizontal input[type="text"]{
 	height: 25px;
 	margin-top: 10px;
 	width: 80%;
 }
 
-
-.pure-table-horizontal tr:first-child td:first-child {
-	font-weight: bold;
-	font-size: 15px;
-	padding: 15px 15px 15px 20px;
-	background-color: #cbcbcb;
-	border: 1px solid black;
-	color: rgb(90, 180, 165);
+.pure-table-horizontal input[type="text"]:hover {
+	background-color: rgb(230, 244, 242);
 }
 
-.pure-table-horizontal th {
-	background-color: #f2f2f2;
-	width: 10%;
-}
+.pure-table-horizontal tr:nth-child(3):hover > .down-type { background-color: yellow; } 
 
-.pure-table-horizontal tr:last-child td:last-child {
-	text-align: center;
-	padding: 15px;
-}
-
-.pure-table-horizontal tr:last-child td:last-child input{
-	margin-left: 20px;
+.down-type {
+	margin: 0px 15px 10px 10px;
 }
 
 .pure-table-horizontal input[type="radio"]{
 	margin-bottom: 5px;
 }
 
-.down-type {
-	margin: 0px 10px 10px 0px;
+.pure-table-horizontal input[type="checkbox"]{
+	margin-left: 10px;
 }
+
+.pure-table-horizontal tr:last-child td:last-child {
+	text-align: center;
+	padding: 5px;
+	background-color: rgb(234, 234, 234);
+}
+
 
 #graph-title{
 	font-size: 15px;
@@ -114,7 +126,7 @@
 
 canvas{
     width: 100% !important;
-    max-width: 637px;
+    max-width: 607px;
     height: auto !important;
     position: absolute;
     left: 40%;
@@ -135,7 +147,8 @@ canvas{
 	position: absolute;
 	margin-left: 32%;
 	color: rgb(118, 116, 116);
-	font-size: 12px
+	font-size: 12px;
+	z-index: 1;
 }
 
 #progression-table{
@@ -168,14 +181,14 @@ canvas{
 	clear: both;
 }
 
-
 #hover-form {
 	color: rgb(118, 116, 116);
 	position: absolute;
 	width: 250px;
 	height: 200px;
 	padding: 7px;
-	background: #FFFFFF;
+	background-color: #FFFFFF;
+	opacity: 1.0;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
@@ -238,8 +251,7 @@ canvas{
 	top: 28px;
 }
 
-#hover-graph:before 
-{
+#hover-graph:before {
 	content: '';
 	position: absolute;
 	border-style: solid;
@@ -263,8 +275,9 @@ canvas{
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin-left: 55%;
-	margin-top: -90px;
+	margin-top: 35px;
 	border: 1px solid rgb(118, 116, 116);
+	/*visibility: hidden*/
 }
 
 #hover-prog:after {
