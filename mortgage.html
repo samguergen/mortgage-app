@@ -3,24 +3,17 @@
     <title>Mortgage Calculator</title>
     <link rel="stylesheet" type="text/css" href="mortgage.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-
-
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
-
-    <!-- <script src="bower_components/angular/angular.min.js"></script> -->
-    <link rel="stylesheet" href="sliders/praj-angular-slider/angular-slider.css">
-    <script src="sliders/praj-angular-slider/angular-slider.js"></script>
-
+    <link rel="stylesheet" href="sliders/popsugar-angular-slider/slider.css">
+    <script src="sliders/popsugar-angular-slider/slider.js"></script>
     <script src="bower_components/Chart.js/Chart.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
-
     <script src="mortgageCtrl.js.coffee"></script>
 
 </head>
-
 
 <body>
     <div class="wrapper" >
@@ -32,11 +25,13 @@
                <br> 3. The graph will display the ratio of monthly interest to principal over time.
                <br> 4. Scroll over each title for more details.
             </div>
-            <div id="logo"><img src="images/pv-logo.png"/></div>
+            <div id="logo">
+                <img src="images/pv-logo.png"/>
+            </div>
         </div>
 
         <div class="page-body">
-            <form action="#" class="mortgage-form" ng-submit="calculateMortgage()" >
+            <form action="#" class="mortgage-form" >
                 <div id="hover-form" ng-show="HoverFormisVisible"> 
                     Select your type of mortgage, the total cost of your home, and your downpayment, which can be either an amount or a percentage. 
                     <br> Then select 'Calculate Progression', and we will auto-complete the form,  display details of the amount you owe each month, and graph the ratio of interest to principal for each monthly payment over time. 
@@ -46,60 +41,82 @@
             			<tr>
             				<td colspan="2" ng-mouseover="HoverFormisVisible=true" ng-mouseleave="HoverFormisVisible=false"> Enter your mortgage information </td>
             			</tr>
-                        <tr> 
-                            <th>Type of Mortgage</th>
-                            <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
-                        </tr>
-                        <tr>
-                            <th>Number of Payments</th>
-                            <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
-                        </tr>
+                        
                         <tr>
                             <th>Total Price of House</th>
-                            <td> <b>$</b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}" /> 
-
-                            <!-- <br> {{ formData.total_price }} -->
+                            <td> 
+                                <b>$ </b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
                             
-                            <br><slider floor="0" ceiling="1000000" step="1" precision="0" ng-model="formData.total_price"></slider></td>
+                                <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider>
+                            </td>
                         </tr>
 
                         <tr>
                             <th>Down Payment</th>
-                            <td> <b>$</b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
+                            <td> 
+                                <b>$ </b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
                             
-                            <!-- <br> {{ formData.downpayment | currency }} -->
+                                <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
-                            <br><slider floor="0" ceiling="1000000" step="1" precision="0" ng-model="formData.downpayment"></slider>
-
-                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
-                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
+                                <br>
+                                <span class="down-type">
+                                    <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount 
+                                </span>
+                                <span class="down-type">
+                                    <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage 
+                                </span>
                             </td>
                         </tr>
 
                         <tr>
                             <th>Annual Interest Rate</th>
-                            <td> <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}" /><b>%</b>
-                            <!-- <br> {{formData.annual_interest_rate}} % -->
-                            <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider></td>
+                            <td>
+                                <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}"  /><b> %</b>
+                                
+                                <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider>
+                            </td>
                         </tr>
+
+                        <tr> 
+                            <th>Type of Mortgage</th>
+                            <td>                            
+                                <input type="checkbox" ng-model="formData.mortgage_type" />
+                                30-Year Fix
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Number of Payments</th>
+                            <td>
+                                <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> 
+                            </td>
+                        </tr>
+
                         <tr>
                             <th>Loan Amount</th>
-
-                            <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
+                            <td> 
+                                $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> 
+                            </td>
                         </tr>
+
                         <tr>
                         	<td colspan="2">
                                 <input type="button" ng-click="reset()" value="Reset"/>
             					<!-- <input type="submit" value="Submit"/> -->
-                                <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/>
+                                <!-- <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/> -->
             				</td>
                         </tr>          
-
             </table>
-
             </form>
 
-            <div id="graph-title" ng-mouseover="HoverGraphisVisible=true" ng-mouseleave="HoverGraphisVisible=false">Cumulative Interest and Principal Payments Over 30 Years.</div>
+
+<!--             <br> {{formData.total_price}}
+            <br> {{formData.downpayment}}
+            <br> {{formData.annual_interest_rate}} -->
+
+            <div id="graph-title" ng-mouseover="HoverGraphisVisible=true" ng-mouseleave="HoverGraphisVisible=false">
+                Cumulative Interest and Principal Payments Over 30 Years.
+            </div>
             <div id="hover-graph" ng-show="HoverGraphisVisible"> 
                 This graph displays the ratio of interest to principal for each monthly payment, over the course of 30 years. 
                 <br> The interest is the extra cost you owe to your bank for taking a loan, and the principal is the money that goes directly into paying your house.
@@ -109,17 +126,19 @@
             <canvas id="line" class="chart chart-line" data="data"
               labels="labels" legend="true" series="series" colours="colours"
               click="onClick"> 
-            </canvas> 
+            </canvas>  
 
             <div id="x-axis">Years</div>
 
-            <div id="progression-table">
+
+             <div id="progression-table">
                 <div id="prog-table-title" ng-mouseover="HoverProgisVisible=true" ng-mouseleave="HoverProgisVisible=false"> Your Monthly Payment Over 30 Years</div>
                 <div id="hover-prog" ng-show="HoverProgisVisible">
                     This table displays the details of your monthly payment for your mortgage over 30 years. 
                     <br>Your monthly payment remains the same throughout the 30-year period, but the interest and principal amounts that constitute your monthly payment change over time. 
                     <br>Refer to the graph for better clarity.
                 </div>
+
                 <table id="prog-table" class="pure-table pure-table-striped" >
                     <thead>
                         <tr>
@@ -144,8 +163,7 @@
                 </table>
                 </div>
 
-
-            </div>
+            </div> 
 
 
         <div class="footer">
@@ -153,8 +171,5 @@
 
     </div>
 </body>
-
-
-
 
 </html>

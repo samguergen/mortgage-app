@@ -1,16 +1,18 @@
-var app = angular.module("mortgageApp", ['uiSlider','chart.js']);
+var app = angular.module("mortgageApp", ['ui.slider','chart.js']);
 
 
 mortgageCtrl = function($scope){
 
     console.log('in da controller');
     $scope.formData = {};
-    $scope.labelStore = [];
     $scope.years = [];
     $scope.num_of_payments = 360;
     $scope.formData.total_price = 0;
     $scope.formData.downpayment = 0;
     $scope.formData.annual_interest_rate = 0;
+
+    $scope.seriesInterest = [];
+    $scope.seriesPrincipal = [];
     
     $scope.yearCalc = function(){
         num_years = ($scope.num_of_payments) /12;
@@ -55,6 +57,8 @@ mortgageCtrl = function($scope){
     $scope.calculateMortgageProgression = function(){
 
         $scope.infos = [];
+        $scope.principal_cumul_count = 0;
+        $scope.interest_cumul_count = 0;
 
         $scope.month_payment = $scope.calculateMortgage();
         num_payments = $scope.calculateNumPayments();
@@ -68,7 +72,7 @@ mortgageCtrl = function($scope){
             $scope.monthly_principal = $scope.month_payment - $scope.monthly_interest; 
 
             $scope.interest_cumul_count += $scope.monthly_interest;
-            principal_cumul_count += $scope.monthly_principal;           
+            $scope.principal_cumul_count += $scope.monthly_principal;          
 
             $scope.infos.push({
                 'pay_index': x+1,
@@ -76,7 +80,7 @@ mortgageCtrl = function($scope){
                 'month_interest': $scope.monthly_interest,
                 'month_principal': $scope.monthly_principal,
                 'cumul_interest': $scope.interest_cumul_count,
-                'cumul_principal': principal_cumul_count
+                'cumul_principal': $scope.principal_cumul_count
             });
 
             $scope.remaining_balance -= $scope.monthly_principal;
@@ -87,6 +91,17 @@ mortgageCtrl = function($scope){
             }  
 
         };
+
+        Array.prototype.push.apply($scope.data[0], $scope.seriesInterest);
+        Array.prototype.push.apply($scope.data[1], $scope.seriesPrincipal);
+
+        // console.log('Data obj is ');
+        // console.log($scope.data);
+
+        // console.log('Data obj for cumul int is ');
+        // console.log($scope.data[0]);
+        // console.log('Data obj for cumul principal is ');
+        // console.log($scope.data[1]);        
 
     };
 
@@ -102,6 +117,7 @@ mortgageCtrl = function($scope){
     };
 
     $scope.chartLabel = function(){
+        $scope.labelStore = [];
         years = $scope.yearCalc();
         num_payments = $scope.num_of_payments;
         for (var x=0; x<num_payments; x++){
@@ -136,15 +152,21 @@ mortgageCtrl = function($scope){
 
 
     $scope.addPointInterest = function (info_array) {
-        var seriesArray = $scope.data;
-        seriesArray[0] = seriesArray[0].concat(info_array);
+        $scope.seriesInterest = $scope.seriesInterest.concat(info_array);
+        return $scope.seriesInterest;
     };
 
 
     $scope.addPointPrincipal = function (info_array) {
-        var seriesArray = $scope.data; 
-        seriesArray[1] = seriesArray[1].concat(info_array);
+        $scope.seriesPrincipal = $scope.seriesPrincipal.concat(info_array);
+        return $scope.seriesPrincipal;
     };
+
+
+    $scope.$watch('[formData]', function () {
+        $scope.calculateMortgageProgression();
+
+    }, true);
 
 
   }
