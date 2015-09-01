@@ -273,9 +273,9 @@ canvas{
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin-left: 55%;
-	margin-top: 0px;
+	margin-top: 35px;
 	border: 1px solid rgb(118, 116, 116);
-	visibility: hidden
+	/*visibility: hidden*/
 }
 
 #hover-prog:after {

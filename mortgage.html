@@ -117,10 +117,12 @@
             <div id="graph-title" ng-mouseover="HoverGraphisVisible=true" ng-mouseleave="HoverGraphisVisible=false">
                 Cumulative Interest and Principal Payments Over 30 Years.
             </div>
+            
             <div id="hover-graph" ng-show="HoverGraphisVisible"> 
                 This graph displays the ratio of interest to principal for each monthly payment, over the course of 30 years. 
                 <br> The interest is the extra cost you owe to your bank for taking a loan, and the principal is the money that goes directly into paying your house.
              </div>
+
             <div id="y-axis">Amount (in $)</div>
 
             <canvas id="line" class="chart chart-line" data="data"
