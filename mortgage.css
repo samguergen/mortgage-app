@@ -6,6 +6,7 @@
 	background-color: #F7F7F8;
 	border: 2px solid grey;
 	font-family: "Raleway", sans-serif;
+	position: relative;
 }
 
 
@@ -14,31 +15,34 @@
 	border: 2px solid grey;
 	height: 60px;
 	background-color: rgb(118, 116, 116);
-
+	position: relative;
 }
 
 .heading h2{
 	float: left;
 	margin-top: -2%;
 	color: rgb(136, 184, 176);
+	position: absolute;
 }
 
 #logo {
 	float: left;
 	width: 15%;
-	margin-top: -40px;
+	margin-top: 20px;
 	margin-right: 300px;
+	position: absolute;
 }
 
 #details {
 	float: left;
-	margin-left: 8%;
+	margin-left: 58%;
 	margin-top: 1%;
 	text-align: left;
 	font-size: 10px;
 	float: left;
 	line-height: 14px;
 	color: white;
+	position: absolute;
 }
 
 .page-body {
@@ -97,6 +101,10 @@
 	margin: 0px 10px 10px 0px;
 }
 
+/*.down-type:hover {
+	background: red;
+}*/
+
 #graph-title{
 	font-size: 15px;
 	font-weight: bold;
@@ -114,7 +122,7 @@
 
 canvas{
     width: 100% !important;
-    max-width: 637px;
+    max-width: 607px;
     height: auto !important;
     position: absolute;
     left: 40%;
@@ -168,14 +176,14 @@ canvas{
 	clear: both;
 }
 
-
 #hover-form {
 	color: rgb(118, 116, 116);
 	position: absolute;
 	width: 250px;
 	height: 200px;
 	padding: 7px;
-	background: #FFFFFF;
+	background-color: #FFFFFF;
+	opacity: 1.0;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
@@ -258,13 +266,14 @@ canvas{
 	width: 300px;
 	height: 140px;
 	padding: 7px;
-	background: #FFFFFF;
+	background: solid #FFFFFF;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin-left: 55%;
-	margin-top: -90px;
+	margin-top: 40px;
 	border: 1px solid rgb(118, 116, 116);
+	visibility: hidden
 }
 
 #hover-prog:after {
