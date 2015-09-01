@@ -82,6 +82,12 @@
 	width: 80%;
 }
 
+.pure-table-horizontal input[type="text"]:hover {
+	background-color: rgb(230, 244, 242);
+}
+
+.pure-table-horizontal tr:nth-child(3) input[type="text"]:hover + .down-type { background-color: yellow; } 
+
 .down-type {
 	margin: 0px 15px 10px 10px;
 }
@@ -96,7 +102,8 @@
 
 .pure-table-horizontal tr:last-child td:last-child {
 	text-align: center;
-	padding: 15px;
+	padding: 5px;
+	background-color: rgb(234, 234, 234);
 }
 
 
@@ -266,7 +273,7 @@ canvas{
 	-moz-border-radius: 12px;
 	border-radius: 12px;
 	margin-left: 55%;
-	margin-top: 40px;
+	margin-top: 0px;
 	border: 1px solid rgb(118, 116, 116);
 	visibility: hidden
 }
