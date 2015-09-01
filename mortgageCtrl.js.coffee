@@ -72,18 +72,7 @@ mortgageCtrl = function($scope){
             $scope.monthly_principal = $scope.month_payment - $scope.monthly_interest; 
 
             $scope.interest_cumul_count += $scope.monthly_interest;
-            $scope.principal_cumul_count += $scope.monthly_principal;   
-
-            console.log('monthly payment');
-            console.log($scope.month_payment);
-            console.log('monthly principal');
-            console.log($scope.monthly_principal);
-            console.log('monthly interest');
-            console.log($scope.monthly_interest);
-            console.log('principal cumul count');
-            console.log($scope.principal_cumul_count);
-            console.log('interest cumul count');
-            console.log($scope.interest_cumul_count);        
+            $scope.principal_cumul_count += $scope.monthly_principal;          
 
             $scope.infos.push({
                 'pay_index': x+1,
@@ -99,29 +88,20 @@ mortgageCtrl = function($scope){
             if (x > 0){
                 $scope.addPointInterest($scope.infos[x].cumul_interest );
                 $scope.addPointPrincipal($scope.infos[x].cumul_principal );
-                console.log('cumul interest is');
-                console.log($scope.infos[x].cumul_interest);
-                console.log('cumu principal is ');
-                console.log($scope.infos[x].cumul_principal); 
-
             }  
 
         };
 
-
-        // $scope.data[0].push($scope.seriesInterest);
-        // $scope.data[1].push($scope.seriesPrincipal);
-
         Array.prototype.push.apply($scope.data[0], $scope.seriesInterest);
         Array.prototype.push.apply($scope.data[1], $scope.seriesPrincipal);
 
-        console.log('Data obj is ');
-        console.log($scope.data);
+        // console.log('Data obj is ');
+        // console.log($scope.data);
 
-        console.log('Data obj for cumul int is ');
-        console.log($scope.data[0]);
-        console.log('Data obj for cumul principal is ');
-        console.log($scope.data[1]);        
+        // console.log('Data obj for cumul int is ');
+        // console.log($scope.data[0]);
+        // console.log('Data obj for cumul principal is ');
+        // console.log($scope.data[1]);        
 
     };
 
@@ -172,21 +152,13 @@ mortgageCtrl = function($scope){
 
 
     $scope.addPointInterest = function (info_array) {
-        console.log('info array in addpointinterest ');
-        console.log(info_array);
         $scope.seriesInterest = $scope.seriesInterest.concat(info_array);
-        console.log('after concat in addpointinterest ');
-        console.log($scope.seriesInterest);
         return $scope.seriesInterest;
     };
 
 
     $scope.addPointPrincipal = function (info_array) {
-        console.log('info array in addpointprincipal ');
-        console.log(info_array);
         $scope.seriesPrincipal = $scope.seriesPrincipal.concat(info_array);
-        console.log('after concat in addpointprincipal');
-        console.log($scope.seriesPrincipal);
         return $scope.seriesPrincipal;
     };
 
