@@ -63,9 +63,10 @@
 	margin-right: 2%;
 }
 
-.pure-table-horizontal input[type="number"]{
+.pure-table-horizontal input[type="text"]{
 	height: 25px;
 	margin-top: 20px;
+	width: 80%;
 }
 
 

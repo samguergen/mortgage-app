@@ -49,47 +49,55 @@
                         
                         <tr>
                             <th>Total Price of House</th>
-                            <td> <b>$</b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
-
-                            <!-- <br> {{ formData.total_price }} -->
+                            <td> 
+                                <b>$</b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
                             
-                            <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider></td>
+                                <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider>
+                            </td>
                         </tr>
 
                         <tr>
                             <th>Down Payment</th>
-                            <td> <b>$</b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
+                            <td> 
+                                <b>$</b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
                             
-                            <!-- <br> {{ formData.downpayment | currency }} -->
+                                <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
-                            <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
-
-                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
-                                 <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
+                                <br> <input type="radio" ng-model="formData.down_type" ng-value="2" /> Amount
+                                <br> <input type="radio" ng-model="formData.down_type" ng-value="1" /> Percentage
                             </td>
                         </tr>
 
                         <tr>
                             <th>Annual Interest Rate</th>
-                            <td> <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}"  /><b>%</b>
-                            <!-- <br> {{formData.annual_interest_rate}} % -->
-                            <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider></td>
+                            <td>
+                                <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}"  /><b>%</b>
+                                
+                                <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider>
+                            </td>
                         </tr>
 
                         <tr> 
                             <th>Type of Mortgage</th>
-                            <td>30-Year Fix <input type="checkbox" ng-model="formData.mortgage_type" /> </td>
+                            <td>
+                                30-Year Fix 
+                                <input type="checkbox" ng-model="formData.mortgage_type" />
+                            </td>
                         </tr>
                         <tr>
                             <th>Number of Payments</th>
-                            <td> <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> </td>
+                            <td>
+                                <ng-model="formData.number_of_payments" ng-value="formData.number_of_payments" ng-bind="formData.number_of_payments" /> 
+                            </td>
                         </tr>
 
 
                         <tr>
                             <th>Loan Amount</th>
 
-                            <td> $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> </td>
+                            <td> 
+                                $<ng-model="formData.loan_amount" ng-value="formData.loan_amount" ng-bind="formData.loan_amount" /> 
+                            </td>
                         </tr>
                         <tr>
                         	<td colspan="2">
