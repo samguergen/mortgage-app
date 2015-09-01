@@ -109,8 +109,11 @@ mortgageCtrl = function($scope){
         };
 
 
-        $scope.data[0].push($scope.seriesInterest);
-        $scope.data[1].push($scope.seriesPrincipal);
+        // $scope.data[0].push($scope.seriesInterest);
+        // $scope.data[1].push($scope.seriesPrincipal);
+
+        Array.prototype.push.apply($scope.data[0], $scope.seriesInterest);
+        Array.prototype.push.apply($scope.data[1], $scope.seriesPrincipal);
 
         console.log('Data obj is ');
         console.log($scope.data);
@@ -119,14 +122,6 @@ mortgageCtrl = function($scope){
         console.log($scope.data[0]);
         console.log('Data obj for cumul principal is ');
         console.log($scope.data[1]);        
-        // console.log('First array in Data obj is ');
-        // console.log($scope.data[0]);
-        // console.log('Second array in Data obj is ');
-        // console.log($scope.data[1]);
-        // console.log('Series Interest is ');
-        // console.log($scope.seriesInterest);
-        // console.log('Series principal is ');
-        // console.log($scope.seriesPrincipal);
 
     };
 
