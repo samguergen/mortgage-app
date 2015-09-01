@@ -45,7 +45,7 @@
                         <tr>
                             <th>Total Price of House</th>
                             <td> 
-                                <b>$</b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
+                                <b>$ </b><input type="text" ng-model="formData.total_price" ng-bind="{{formData.total_price - 0 }}"  /> 
                             
                                 <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.total_price"></slider>
                             </td>
@@ -54,7 +54,7 @@
                         <tr>
                             <th>Down Payment</th>
                             <td> 
-                                <b>$</b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
+                                <b>$ </b><input type="text" ng-model="formData.downpayment" ng-bind="{{formData.downpayment - 0 }}"  /> 
                             
                                 <br><slider floor="0" ceiling="1000000" step="1000" precision="0" ng-model="formData.downpayment"></slider>
 
@@ -71,7 +71,7 @@
                         <tr>
                             <th>Annual Interest Rate</th>
                             <td>
-                                <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}"  /><b>%</b>
+                                <input type="text" ng-model="formData.annual_interest_rate" ng-bind="{{formData.annual_interest_rate - 0 }}"  /><b> %</b>
                                 
                                 <br><slider floor="0" ceiling="100" step="1" precision="0" ng-model="formData.annual_interest_rate"></slider>
                             </td>
@@ -103,7 +103,7 @@
                         	<td colspan="2">
                                 <input type="button" ng-click="reset()" value="Reset"/>
             					<!-- <input type="submit" value="Submit"/> -->
-                                <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/>
+                                <!-- <input type="button" ng-click="calculateMortgageProgression()" value="Calculate Progression"/> -->
             				</td>
                         </tr>          
             </table>
